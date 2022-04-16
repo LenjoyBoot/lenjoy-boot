@@ -11,6 +11,12 @@
 
     <artifactId>lenjoy-common</artifactId>
 
+    <packaging>jar</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>乐享项目基础实体、枚举、工具类等</description>
+    <url>https://github.com/lenjoy-backend/lenjoy-boot</url>
+
     <dependencies>
 
         <dependency>

@@ -13,6 +13,10 @@
 
     <packaging>pom</packaging>
 
+    <name>${project.artifactId}</name>
+    <description>乐享项目基础框架组件</description>
+    <url>https://github.com/lenjoy-backend/lenjoy-boot</url>
+
     <properties>
         <!--lenjoy-->
         <lenjoy.version>0.1.0-SNAPSHOT</lenjoy.version>
