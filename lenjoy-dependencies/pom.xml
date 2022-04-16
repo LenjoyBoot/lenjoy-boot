@@ -17,7 +17,7 @@
 
     <properties>
         <!--lenjoy-->
-        <lenjoy-version>0.1.0-SNAPSHOT</lenjoy-version>
+        <lenjoy.version>0.1.0-SNAPSHOT</lenjoy.version>
         <!--springboot-->
         <spring.boot.version>2.6.6</spring.boot.version>
         <!--database-->
@@ -49,6 +49,14 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+
+            <!--lenjoy-->
+            <dependency>
+                <groupId>cn.lenjoy.boot</groupId>
+                <artifactId>lenjoy-common</artifactId>
+                <version>${lenjoy.version}</version>
+            </dependency>
+
             <!--database-->
             <dependency>
                 <groupId>mysql</groupId>

@@ -9,6 +9,7 @@
     <version>0.1.0-SNAPSHOT</version>
 
     <modules>
+        <module>lenjoy-dependencies</module>
         <module>lenjoy-framework</module>
     </modules>
 
