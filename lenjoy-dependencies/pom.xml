@@ -18,19 +18,24 @@
     <properties>
         <!--lenjoy-->
         <lenjoy.version>0.1.0-SNAPSHOT</lenjoy.version>
+
         <!--springboot-->
         <spring.boot.version>2.6.6</spring.boot.version>
+
         <!--database-->
         <mysql.version>8.0.28</mysql.version>
         <druid.version>1.2.9</druid.version>
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
         <dynamic-datasource.version>3.5.1</dynamic-datasource.version>
         <redisson.version>3.17.0</redisson.version>
+
         <!--config-->
         <!--monitor-->
+
         <!--tools-->
         <swagger-annotations.version>1.6.6</swagger-annotations.version>
         <easyexcel.verion>3.0.5</easyexcel.verion>
+        <lombok.verion>1.18.22</lombok.verion>
     </properties>
 
     <dependencyManagement>

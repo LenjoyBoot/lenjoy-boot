@@ -9,37 +9,30 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.lenjoy.boot.framework.redis</groupId>
+    <artifactId>lenjoy-spring-boot-starter-captcha</artifactId>
 
-    <artifactId>lenjoy-spring-boot-starter-redis</artifactId>
+    <properties>
 
-    <packaging>jar</packaging>
-
-    <name>${project.artifactId}</name>
-    <description>乐享项目 redis starter</description>
-    <url>https://github.com/lenjoy-backend/lenjoy-boot</url>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>cn.lenjoy.boot</groupId>
             <artifactId>lenjoy-common</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <artifactId>spring-boot</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson-spring-boot-starter</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
