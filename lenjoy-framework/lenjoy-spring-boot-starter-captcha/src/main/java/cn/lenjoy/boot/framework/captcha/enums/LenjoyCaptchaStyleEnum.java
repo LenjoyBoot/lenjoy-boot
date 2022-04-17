@@ -13,25 +13,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum LenjoyCaptchaStyleEnum {
     /**
-     *
+     * 验证码表示类型
      */
-    IMAGE(0, "默认,静态图片"),
-    ANIMATION(1, "GIF,动画"),
-    ;
-
-    private final Integer code;
-    private final String desc;
-
-    public static boolean noType(Integer code) {
-        return !hasType(code);
-    }
-
-    public static boolean hasType(Integer code) {
-        for (LenjoyCaptchaStyleEnum value : LenjoyCaptchaStyleEnum.values()) {
-            if (value.code.equals(code)) {
-                return true;
-            }
-        }
-        return false;
-    }
+    // 图片
+    IMAGE,
+    // 动画
+    ANIMATION
 }

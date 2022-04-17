@@ -2,10 +2,6 @@ package cn.lenjoy.boot.framework.captcha.config;
 
 import cn.lenjoy.boot.framework.captcha.core.AbstractCaptcha;
 import cn.lenjoy.boot.framework.captcha.core.LenjoyGraphicCaptcha;
-import cn.lenjoy.boot.framework.captcha.enums.LenjoyCaptchaStyleEnum;
-import cn.lenjoy.boot.framework.captcha.enums.LenjoyCaptchaTypeEnum;
-import cn.lenjoy.boot.framework.captcha.exception.LenjoyCaptchaArgumentException;
-import cn.lenjoy.boot.framework.captcha.exception.LenjoyCaptchaNotFoundException;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -32,15 +28,6 @@ public class LenjoyCaptchaAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public AbstractCaptcha defaultCaptcha() {
-        if (LenjoyCaptchaTypeEnum.noType(lenjoyCaptchaProperties.getType())) {
-            throw new LenjoyCaptchaNotFoundException();
-        }
-        if (LenjoyCaptchaStyleEnum.noType(lenjoyCaptchaProperties.getStyle())) {
-            throw new LenjoyCaptchaNotFoundException();
-        }
-        if (lenjoyCaptchaProperties.getLength() < 4 || lenjoyCaptchaProperties.getLength() > 8) {
-            throw new LenjoyCaptchaArgumentException();
-        }
-        return new LenjoyGraphicCaptcha(lenjoyCaptchaProperties.getType(), lenjoyCaptchaProperties.getStyle(), lenjoyCaptchaProperties.getLength());
+        return new LenjoyGraphicCaptcha(lenjoyCaptchaProperties);
     }
 }

@@ -1,9 +1,10 @@
 package cn.lenjoy.boot.framework.captcha.core;
 
+import cn.lenjoy.boot.framework.captcha.config.LenjoyCaptchaProperties;
 import cn.lenjoy.boot.framework.captcha.constant.LenjoyCaptchaConstant;
 import cn.lenjoy.boot.framework.captcha.enums.LenjoyCaptchaStyleEnum;
+import cn.lenjoy.boot.framework.captcha.enums.LenjoyCaptchaTypeEnum;
 import cn.lenjoy.boot.framework.captcha.exception.LenjoyCaptchaGenerateException;
-import cn.lenjoy.boot.framework.common.util.date.DateTimeUtils;
 import cn.lenjoy.boot.framework.common.util.string.StringUtils;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,9 +13,9 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.Base64;
+
+import static cn.lenjoy.boot.framework.common.util.random.RandomUtils.*;
 
 /**
  * @description: 乐享图形验证码
@@ -26,12 +27,11 @@ import java.util.Base64;
 @Data
 public class LenjoyGraphicCaptcha extends AbstractCaptcha implements LenjoyValidateCaptcha {
 
-    public LenjoyGraphicCaptcha() { }
-
-    public LenjoyGraphicCaptcha(int type, int style, int length) {
-        this.type = type;
-        this.style = style;
-        this.length = length;
+    public LenjoyGraphicCaptcha(LenjoyCaptchaProperties lenjoyCaptchaProperties) {
+        this.type = lenjoyCaptchaProperties.getType();
+        this.style = lenjoyCaptchaProperties.getStyle();
+        this.length = lenjoyCaptchaProperties.getLength();
+        this.timeout = lenjoyCaptchaProperties.getTimeout();
     }
 
     /**
@@ -45,52 +45,14 @@ public class LenjoyGraphicCaptcha extends AbstractCaptcha implements LenjoyValid
      */
     @Override
     public LenjoyCaptcha generate() {
-        return generate(type, length);
-    }
-
-    /**
-     * 生成验证码对象
-     *
-     * @param type 类型 超时时间 60秒 单位 秒
-     * @param length 长度 默认 4
-     * @return 生成验证码对象
-     */
-    @Override
-    public LenjoyCaptcha generate(int type, int length) {
-        return generate(type, 60L, ChronoUnit.SECONDS, length);
-    }
-
-    /**
-     * 生成验证码对象
-     *
-     * @param type    类型
-     * @param timeout 超时时间 单位 秒
-     * @return 生成验证码对象
-     */
-    @Override
-    public LenjoyCaptcha generate(int type, long timeout, int length) {
-        return generate(type, timeout, ChronoUnit.SECONDS, length);
-    }
-
-    /**
-     * 生成验证码对象
-     *
-     * @param type    类型
-     * @param timeout 超时时间
-     * @param unit    单位
-     * @return 生成验证码对象
-     */
-    @Override
-    public LenjoyCaptcha generate(int type, long timeout, TemporalUnit unit, int length) {
         String text = randomText(type, length);
         // 组装数据
         LenjoyCaptcha captcha = new LenjoyCaptcha();
-        captcha.setCert("");
         captcha.setKey(text);
         captcha.setValue(toBase64(text));
         captcha.setType(type);
-        captcha.setStyle(LenjoyCaptchaStyleEnum.IMAGE.getCode());
-        captcha.setTimeout(DateTimeUtils.offset(timeout, unit));
+        captcha.setStyle(LenjoyCaptchaStyleEnum.IMAGE);
+        captcha.setTimeout(timeout);
         return captcha;
     }
 
@@ -101,11 +63,23 @@ public class LenjoyGraphicCaptcha extends AbstractCaptcha implements LenjoyValid
      * @return 格式字符串
      */
     @Override
-    public String randomText(int type, int length) {
-        if (length == 5) {
-            return "12345";
+    public String randomText(LenjoyCaptchaTypeEnum type, int length) {
+        String text;
+        switch (type) {
+            case DEFAULT:
+            case NUMBER: text = nextNumber(length);
+                break;
+            case LOWER: text = nextLower(length);
+                break;
+            case UPPER: text = nextUpper(length);
+                break;
+            case LETTER: text = nextLetter(length);
+                break;
+            case NUMBER_LETTER: text = nextNumberLetter(length);
+                break;
+            default: text = "";
         }
-        return "1234";
+        return text;
     }
 
     /**

@@ -1,9 +1,11 @@
 package cn.lenjoy.boot.framework.captcha.core;
 
+import cn.lenjoy.boot.framework.captcha.enums.LenjoyCaptchaStyleEnum;
+import cn.lenjoy.boot.framework.captcha.enums.LenjoyCaptchaTypeEnum;
+
 import java.awt.*;
 import java.awt.geom.CubicCurve2D;
 import java.awt.geom.QuadCurve2D;
-import java.time.temporal.TemporalUnit;
 
 import static cn.lenjoy.boot.framework.common.util.random.RandomUtils.nextInt;
 
@@ -25,15 +27,15 @@ public abstract class AbstractCaptcha {
     //验证码图片默认高度
     protected int height = 40;
     //验证码类型
-    protected int type = 0;
+    protected LenjoyCaptchaTypeEnum type = LenjoyCaptchaTypeEnum.DEFAULT;
     //验证码类型
-    protected int style = 0;
+    protected LenjoyCaptchaStyleEnum style = LenjoyCaptchaStyleEnum.IMAGE;
     //验证码默认长度 4
     protected int length = 4;
+    //验证码默认超时 60
+    protected long timeout = 60L;
 
-    protected AbstractCaptcha() {
-    }
-
+    protected AbstractCaptcha() { }
 
     /**
      * 生成验证码对象
@@ -42,35 +44,11 @@ public abstract class AbstractCaptcha {
     public abstract LenjoyCaptcha generate();
 
     /**
-     * 生成验证码对象
-     * @param type 类型 超时时间 60秒 单位 秒
-     * @return 生成验证码对象
-     */
-    public abstract LenjoyCaptcha generate(int type, int length);
-
-    /**
-     * 生成验证码对象
-     * @param type 类型
-     * @param timeout 超时时间 单位 秒
-     * @return 生成验证码对象
-     */
-    public abstract LenjoyCaptcha generate(int type, long timeout, int length);
-
-    /**
-     * 生成验证码对象
-     * @param type 类型
-     * @param timeout 超时时间
-     * @param unit 单位
-     * @return 生成验证码对象
-     */
-    public abstract LenjoyCaptcha generate(int type, long timeout, TemporalUnit unit, int length);
-
-    /**
      * 生成随机字符串
      * @param type 验证码类型
      * @return 格式字符串
      */
-    public abstract String randomText(int type, int length);
+    public abstract String randomText(LenjoyCaptchaTypeEnum type, int length);
 
     /**
      * 图片 转 Base64 格式字符串

@@ -1,8 +1,8 @@
 package cn.lenjoy.boot.framework.captcha.core;
 
+import cn.lenjoy.boot.framework.captcha.enums.LenjoyCaptchaStyleEnum;
+import cn.lenjoy.boot.framework.captcha.enums.LenjoyCaptchaTypeEnum;
 import lombok.Data;
-
-import java.time.LocalDateTime;
 
 /**
  * @description: 乐享验证码对象
@@ -12,10 +12,6 @@ import java.time.LocalDateTime;
  */
 @Data
 public class LenjoyCaptcha {
-    /**
-     * 验证码凭证
-     */
-    private String cert;
     /**
      * 验证码键
      */
@@ -27,13 +23,13 @@ public class LenjoyCaptcha {
     /**
      * 验证码类型
      */
-    private Integer type;
+    private LenjoyCaptchaTypeEnum type;
     /**
      * 验证码表现类型
      */
-    private Integer style;
+    private LenjoyCaptchaStyleEnum style;
     /**
-     * 验证码表现类型
+     * 验证码过期数
      */
-    private LocalDateTime timeout;
+    private Long timeout;
 }

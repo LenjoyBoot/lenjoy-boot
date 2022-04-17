@@ -1,0 +1,24 @@
+{
+  "properties": [
+    {
+      "name": "lenjoy.captcha.type",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.captcha.type."
+    },
+    {
+      "name": "lenjoy.captcha.style",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.captcha.style."
+    },
+    {
+      "name": "lenjoy.captcha.length",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.captcha.length."
+    },
+    {
+      "name": "lenjoy.captcha.timeout",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.captcha.timeout."
+    }
+  ]
+}
