@@ -12,6 +12,8 @@
         <module>lenjoy-dependencies</module>
         <module>lenjoy-framework</module>
         <module>lenjoy-boot-test</module>
+        <module>lenjoy-system</module>
+        <module>lenjoy-generate</module>
     </modules>
 
     <packaging>pom</packaging>

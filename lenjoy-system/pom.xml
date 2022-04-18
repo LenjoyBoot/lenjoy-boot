@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>lenjoy-boot</artifactId>
+        <groupId>cn.lenjoy.boot</groupId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>lenjoy-system</artifactId>
+
+    <packaging>pom</packaging>
+
+    <name>${project.artifactId}</name>
+
+    <description>
+        乐享 system 模块：通用业务
+        用户、部门、公司、
+        rbac 权限(角色、权限)、
+        数据字典、系统配置、
+        登录日志、操作日志、
+        系统通知
+    </description>
+    <modules>
+        <module>lenjoy-system-api</module>
+        <module>lenjoy-system-service</module>
+    </modules>
+
+</project>
