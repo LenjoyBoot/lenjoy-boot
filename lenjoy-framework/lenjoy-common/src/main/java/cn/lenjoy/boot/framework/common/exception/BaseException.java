@@ -17,6 +17,10 @@ public class BaseException extends RuntimeException {
 
     // 自定义构造异常
 
+    public BaseException(String msg) {
+        super(msg);
+    }
+
     public BaseException(String code, String msg) {
         super(CODE + code + MSG + msg + SUFFIX);
     }

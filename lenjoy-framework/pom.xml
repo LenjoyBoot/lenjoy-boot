@@ -17,6 +17,8 @@
         <module>lenjoy-common</module>
         <module>lenjoy-spring-boot-starter-redis</module>
         <module>lenjoy-spring-boot-starter-captcha</module>
+        <module>lenjoy-spring-boot-starter-cache</module>
+        <module>lenjoy-spring-boot-starter-lock</module>
     </modules>
 
     <name>${project.artifactId}</name>
