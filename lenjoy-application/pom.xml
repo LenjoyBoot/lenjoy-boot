@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>lenjoy-boot</artifactId>
+        <groupId>cn.lenjoy.boot</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>lenjoy-application</artifactId>
+
+    <packaging>jar</packaging>
+    <description>乐享项目启动引导工程</description>
+    <url>https://github.com/lenjoy-backend/lenjoy-boot</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.lenjoy.boot</groupId>
+            <artifactId>lenjoy-system</artifactId>
+            <version>${lenjoy.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!--升级springboot版本时需修改为对应的版本-->
+                <version>2.6.6</version>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

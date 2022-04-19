@@ -36,6 +36,7 @@ build/
 .mvn
 mvnw
 mvnw.cmd
+pom.xml.versionsBackup
 
 ### test ###
 **/test/**

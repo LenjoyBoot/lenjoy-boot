@@ -6,7 +6,7 @@
 
     <groupId>cn.lenjoy.boot</groupId>
     <artifactId>lenjoy-dependencies</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
@@ -17,7 +17,7 @@
 
     <properties>
         <!--lenjoy-->
-        <lenjoy.version>0.1.0-SNAPSHOT</lenjoy.version>
+        <lenjoy.version>1.0.0-SNAPSHOT</lenjoy.version>
 
         <!--springboot-->
         <spring.boot.version>2.6.6</spring.boot.version>
