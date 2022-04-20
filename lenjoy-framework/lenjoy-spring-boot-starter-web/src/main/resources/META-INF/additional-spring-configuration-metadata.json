@@ -1,0 +1,44 @@
+{
+  "properties": [
+    {
+      "name": "lenjoy.swagger.enable",
+      "type": "java.lang.Boolean",
+      "description": "Description for lenjoy.swagger.enable."
+    },
+    {
+      "name": "lenjoy.swagger.title",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.swagger.title."
+    },
+    {
+      "name": "lenjoy.swagger.description",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.swagger.description."
+    },
+    {
+      "name": "lenjoy.swagger.author",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.swagger.author."
+    },
+    {
+      "name": "lenjoy.swagger.version",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.swagger.version."
+    },
+    {
+      "name": "lenjoy.swagger.basePackage",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.swagger.basePackage."
+    },
+    {
+      "name": "lenjoy.swagger.url",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.swagger.url."
+    },
+    {
+      "name": "lenjoy.swagger.email",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.swagger.email."
+    }
+  ]
+}

@@ -19,6 +19,7 @@
         <module>lenjoy-spring-boot-starter-captcha</module>
         <module>lenjoy-spring-boot-starter-cache</module>
         <module>lenjoy-spring-boot-starter-lock</module>
+        <module>lenjoy-spring-boot-starter-web</module>
     </modules>
 
     <name>${project.artifactId}</name>

@@ -1,6 +1,8 @@
 package cn.lenjoy.boot.framework.common.exception;
 
 import cn.lenjoy.boot.framework.common.base.CodeMsg;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @description: 基础异常类
@@ -8,29 +10,27 @@ import cn.lenjoy.boot.framework.common.base.CodeMsg;
  * @date: Create By lenjoy's bincloud,mvpzhou on 2022 04 16 星期六
  * @version: 1.0.0
  */
-@SuppressWarnings("unused")
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class BaseException extends RuntimeException {
 
-    private static final String CODE = "代码: ";
-    private static final String MSG = ", 信息: ";
-    private static final String SUFFIX = ".";
+    private static final String CODE_PREFIX = "代码: ";
+    private static final String MSG_PREFIX = ", 信息: ";
+    private static final String MSG_SUFFIX = ".";
 
-    // 自定义构造异常
+    private final String code;
+    private final String msg;
 
-    public BaseException(String msg) {
-        super(msg);
-    }
-
-    public BaseException(String code, String msg) {
-        super(CODE + code + MSG + msg + SUFFIX);
+    public BaseException(String msg, String code) {
+        super(CODE_PREFIX + code + MSG_PREFIX + msg + MSG_SUFFIX);
+        this.code = code;
+        this.msg = msg;
     }
 
     public BaseException(CodeMsg codeMsg) {
-        super(CODE + codeMsg.getCode() + MSG + codeMsg.getMsg() + SUFFIX);
+        super(CODE_PREFIX + codeMsg.getCode() + MSG_PREFIX + codeMsg.getMsg() + MSG_SUFFIX);
+        this.code = codeMsg.getCode();
+        this.msg = codeMsg.getMsg();
     }
 
-    /**
-     * 无参构造
-     */
-    public BaseException() { }
 }
