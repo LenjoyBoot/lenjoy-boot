@@ -1,5 +1,7 @@
 package cn.lenjoy.boot.framework.web.config.swagger;
 
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
+import com.github.xiaoymin.knife4j.spring.extension.OpenApiExtensionResolver;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -18,10 +20,15 @@ import static springfox.documentation.builders.RequestHandlerSelectors.basePacka
 
 /**
  * @description: 乐享 swagger 自动装配
+ * 使用 knife4j 增加功能，OpenApiExtensionResolver 无法自动注入。
+ * 错误提示：Could not autowire. No beans of "OpenApiExtensionResolver" type found
+ * 解决方案：@EnableKnife4j
+ *
  * @author: lenjoy's bincloud,mvpzhou
  * @date: Create By lenjoy's bincloud,mvpzhou on 2022 04 20 星期三
  * @version: 1.0.0
  */
+@EnableKnife4j
 @Configuration
 @ConditionalOnClass({Docket.class, ApiInfoBuilder.class})
 @EnableConfigurationProperties(LenjoySwaggerProperties.class)
@@ -29,9 +36,11 @@ import static springfox.documentation.builders.RequestHandlerSelectors.basePacka
 public class LenjoySwaggerAutoConfiguration {
 
     private final LenjoySwaggerProperties lenjoySwaggerProperties;
+    private final OpenApiExtensionResolver openApiExtensionResolver;
 
-    public LenjoySwaggerAutoConfiguration(LenjoySwaggerProperties lenjoySwaggerProperties) {
+    public LenjoySwaggerAutoConfiguration(LenjoySwaggerProperties lenjoySwaggerProperties, OpenApiExtensionResolver openApiExtensionResolver) {
         this.lenjoySwaggerProperties = lenjoySwaggerProperties;
+        this.openApiExtensionResolver = openApiExtensionResolver;
     }
 
     @Bean
@@ -46,7 +55,9 @@ public class LenjoySwaggerAutoConfiguration {
                 .paths(PathSelectors.any())
                 // 扫描所有有注解的api
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
-                .build();
+                .build()
+                // knife4j 增强
+                .extensions(openApiExtensionResolver.buildExtensions(lenjoySwaggerProperties.getVersion()));
     }
 
     private ApiInfo apiInfo() {
@@ -58,7 +69,7 @@ public class LenjoySwaggerAutoConfiguration {
                 // 信息
                 .contact(new Contact(lenjoySwaggerProperties.getAuthor(), lenjoySwaggerProperties.getUrl(), lenjoySwaggerProperties.getEmail()))
                 // 版本号
-                .version("1.0.0-SNAPSHOT")
+                .version(lenjoySwaggerProperties.getVersion())
                 .build();
     }
 
