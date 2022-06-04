@@ -1,5 +1,7 @@
 package cn.lenjoy.boot.test.controller;
 
+import cn.lenjoy.boot.framework.common.util.AssertUtils;
+import com.alibaba.fastjson2.JSON;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +22,8 @@ public class TestController {
     @GetMapping(value = "")
     @ApiOperation(tags = "test", value = "value", notes = "notes")
     public String test() {
-        return "test";
+        AssertUtils.isTrue(true, "true");
+        return JSON.toJSONString("true");
     }
 
 }
