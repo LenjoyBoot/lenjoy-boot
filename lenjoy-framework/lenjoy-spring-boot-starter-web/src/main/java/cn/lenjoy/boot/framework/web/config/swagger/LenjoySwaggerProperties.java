@@ -2,6 +2,7 @@ package cn.lenjoy.boot.framework.web.config.swagger;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -12,6 +13,7 @@ import javax.validation.constraints.NotEmpty;
  * @version: 1.0.0
  */
 @Data
+@Validated
 @ConfigurationProperties("lenjoy.swagger")
 public class LenjoySwaggerProperties {
     /**
@@ -42,7 +44,7 @@ public class LenjoySwaggerProperties {
     /**
      * 地址
      */
-    private String url = "";
+    private String url = "https://bincloud.gitee.io";
     /**
      * 邮箱
      */

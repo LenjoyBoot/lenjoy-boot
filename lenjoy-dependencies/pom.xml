@@ -20,24 +20,22 @@
         <lenjoy.version>1.0.0-SNAPSHOT</lenjoy.version>
 
         <!--springboot-->
-        <spring.boot.version>2.6.6</spring.boot.version>
+        <spring.boot.version>2.7.0</spring.boot.version>
 
         <!--database-->
-        <mysql.version>8.0.28</mysql.version>
         <druid.version>1.2.9</druid.version>
-        <mybatis-plus.version>3.5.1</mybatis-plus.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <dynamic-datasource.version>3.5.1</dynamic-datasource.version>
-        <redisson.version>3.17.0</redisson.version>
+        <redisson.version>3.17.3</redisson.version>
 
         <!--config-->
         <!--monitor-->
 
         <!--tools-->
         <swagger-annotations.version>1.6.6</swagger-annotations.version>
-        <easyexcel.verion>3.0.5</easyexcel.verion>
-        <lombok.verion>1.18.22</lombok.verion>
+        <easyexcel.verion>3.1.0</easyexcel.verion>
         <springfox.verion>3.0.0</springfox.verion>
-        <knife4j.verion>2.0.9</knife4j.verion>
+        <knife4j.verion>3.0.3</knife4j.verion>
     </properties>
 
     <dependencyManagement>
@@ -68,7 +66,6 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>

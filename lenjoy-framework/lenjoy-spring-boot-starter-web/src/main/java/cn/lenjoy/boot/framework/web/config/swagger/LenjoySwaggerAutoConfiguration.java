@@ -28,7 +28,7 @@ import static springfox.documentation.builders.RequestHandlerSelectors.basePacka
 @ConditionalOnProperty(prefix = "lenjoy.swagger", value = "enable", matchIfMissing = true)
 public class LenjoySwaggerAutoConfiguration {
 
-    public final LenjoySwaggerProperties lenjoySwaggerProperties;
+    private final LenjoySwaggerProperties lenjoySwaggerProperties;
 
     public LenjoySwaggerAutoConfiguration(LenjoySwaggerProperties lenjoySwaggerProperties) {
         this.lenjoySwaggerProperties = lenjoySwaggerProperties;
@@ -58,7 +58,7 @@ public class LenjoySwaggerAutoConfiguration {
                 // 信息
                 .contact(new Contact(lenjoySwaggerProperties.getAuthor(), lenjoySwaggerProperties.getUrl(), lenjoySwaggerProperties.getEmail()))
                 // 版本号
-                .version("0.0.1")
+                .version("1.0.0-SNAPSHOT")
                 .build();
     }
 
