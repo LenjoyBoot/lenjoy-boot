@@ -30,6 +30,12 @@
         </dependency>
 
         <dependency>
+            <groupId>cn.lenjoy.boot</groupId>
+            <artifactId>lenjoy-spring-boot-starter-excel</artifactId>
+            <version>${lenjoy.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
             <artifactId>fastjson2</artifactId>
         </dependency>

@@ -20,6 +20,7 @@
         <module>lenjoy-spring-boot-starter-cache</module>
         <module>lenjoy-spring-boot-starter-lock</module>
         <module>lenjoy-spring-boot-starter-web</module>
+        <module>lenjoy-spring-boot-starter-excel</module>
     </modules>
 
     <name>${project.artifactId}</name>
