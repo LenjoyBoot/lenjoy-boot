@@ -5,17 +5,22 @@ import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
 
 /**
- * @description: 时间工具类
+ * @description: LocalDateTime 工具类
  * @author: lenjoy's bincloud,mvpzhou
  * @date: Create By lenjoy's bincloud,mvpzhou on 2022 04 17 星期日
  * @version: 1.0.0
  */
-public class DateTimeUtils {
+@SuppressWarnings("unused")
+public class LocalDateTimeUtils {
 
+    /**
+     * 私有构造数
+     */
+    private LocalDateTimeUtils() {}
 
     /**
      * 当前时间，默认时区
-     * @return 当前时间
+     * @return LocalDateTime 类
      */
     public static LocalDateTime now() {
         return LocalDateTime.now();
@@ -53,9 +58,4 @@ public class DateTimeUtils {
         }
         return time.plus(timeout, unit);
     }
-
-    /**
-     * 私有构造数
-     */
-    private DateTimeUtils() {}
 }

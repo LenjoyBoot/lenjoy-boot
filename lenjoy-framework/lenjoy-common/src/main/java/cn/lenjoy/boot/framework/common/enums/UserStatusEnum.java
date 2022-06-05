@@ -4,24 +4,27 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @description: 状态枚举
+ * @description: 用户状态枚举
  * @author: lenjoy's bincloud,mvpzhou
- * @date: Create By lenjoy's bincloud,mvpzhou on 2022 04 16 星期六
+ * @date: Create By lenjoy's bincloud,mvpzhou on 2022 06 05 星期日
  * @version: 1.0.0
  */
 @Getter
 @AllArgsConstructor
-public enum StatusEnum {
-
+public enum UserStatusEnum {
     ENABLE(0, "可用"),
     DISABLE(1, "禁用"),
+    ACCOUNT_EXPIRED(2, "账号已过期"),
+    ACCOUNT_LOCKED(3, "账号已锁定"),
+    CREDENTIALS_EXPIRED(4, "密码已过期"),
     ;
     /**
-     * 状态值
+     * 类型值
      */
     private final Integer code;
+
     /**
-     * 状态描述
+     * 类型描述
      */
     private final String desc;
 }

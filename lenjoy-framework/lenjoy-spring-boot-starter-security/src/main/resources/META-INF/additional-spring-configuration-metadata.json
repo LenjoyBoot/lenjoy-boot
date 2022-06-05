@@ -1,0 +1,24 @@
+{
+  "properties": [
+    {
+      "name": "lenjoy.security.tokenTimeout",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.security.tokenTimeout."
+    },
+    {
+      "name": "lenjoy.security.tokenHeader",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.security.tokenHeader."
+    },
+    {
+      "name": "lenjoy.security.sessionTimeout",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.security.sessionTimeout."
+    },
+    {
+      "name": "lenjoy.security.mockEnable",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.security.mockEnable."
+    }
+  ]
+}

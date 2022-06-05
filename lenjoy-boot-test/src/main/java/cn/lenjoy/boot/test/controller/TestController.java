@@ -1,6 +1,7 @@
 package cn.lenjoy.boot.test.controller;
 
 import cn.lenjoy.boot.framework.common.util.AssertUtils;
+import cn.lenjoy.boot.framework.common.util.servlet.ServletUtils;
 import cn.lenjoy.boot.framework.excel.core.LenjoyReadListener;
 import cn.lenjoy.boot.framework.excel.util.ExcelUtils;
 import cn.lenjoy.boot.test.dto.NewClass;
@@ -59,5 +60,19 @@ public class TestController {
             }
         });
         return JSON.toJSONString(list);
+    }
+
+    @GetMapping(value = "ip")
+    @ApiOperation(tags = "ip", value = "value", notes = "notes")
+    public String ip() {
+        String clientIP = ServletUtils.getClientIP();
+        return JSON.toJSONString(clientIP);
+    }
+
+    @GetMapping(value = "ua")
+    @ApiOperation(tags = "ua", value = "value", notes = "notes")
+    public String ua() {
+        String userAgent = ServletUtils.getUserAgent();
+        return JSON.toJSONString(userAgent);
     }
 }
