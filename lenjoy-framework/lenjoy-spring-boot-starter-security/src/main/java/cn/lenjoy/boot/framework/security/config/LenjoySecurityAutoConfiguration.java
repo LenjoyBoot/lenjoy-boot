@@ -1,5 +1,6 @@
 package cn.lenjoy.boot.framework.security.config;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,8 +11,9 @@ import org.springframework.context.annotation.Configuration;
  * @date: Create By lenjoy's bincloud,mvpzhou on 2022 06 05 星期日
  * @version: 1.0.0
  */
-@Configuration(proxyBeanMethods = false)
+@Configuration
 @EnableConfigurationProperties(LenjoySecurityProperties.class)
+@ConditionalOnProperty(prefix = "lenjoy.security", value = "enable", matchIfMissing = true)
 public class LenjoySecurityAutoConfiguration {
 
     private final LenjoySecurityProperties lenjoySecurityProperties;

@@ -1,10 +1,12 @@
 package cn.lenjoy.boot.framework.security.util;
 
+import cn.lenjoy.boot.framework.common.util.object.ObjectUtils;
+import cn.lenjoy.boot.framework.common.util.servlet.ServletUtils;
+import cn.lenjoy.boot.framework.common.util.string.StringUtils;
 import cn.lenjoy.boot.framework.security.core.LenjoyUserDetails;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,19 +24,21 @@ public class LenjoySecurityUtils {
     /**
      * 从 {@link HttpServletRequest} 中 Header 获取对应的 token
      *
-     * @param request 请求
      * @return token
      */
-    public static String getJwtToken(HttpServletRequest request) {
+    public static String getJwtToken() {
+        HttpServletRequest request = ServletUtils.getRequest();
+        if (ObjectUtils.isNull(request)) {
+            return null;
+        }
         String authorization = request.getHeader("Authorization");
-        if (!StringUtils.hasText(authorization)) {
+        if (StringUtils.isBlank(authorization)) {
             return null;
         }
-        int index = authorization.indexOf("Bearer ");
-        if (index == -1) { // 未找到
+        if (!authorization.startsWith("Bearer ")) {
             return null;
         }
-        return authorization.substring(index + 7).trim();
+        return authorization.substring(7).trim();
     }
 
     /**

@@ -75,4 +75,11 @@ public class TestController {
         String userAgent = ServletUtils.getUserAgent();
         return JSON.toJSONString(userAgent);
     }
+
+    @GetMapping(value = "jwt")
+    @ApiOperation(tags = "jwt", value = "value", notes = "notes")
+    public String jwt() {
+//        String jwtToken = LenjoySecurityUtils.getJwtToken();
+        return JSON.toJSONString("jwtToken");
+    }
 }

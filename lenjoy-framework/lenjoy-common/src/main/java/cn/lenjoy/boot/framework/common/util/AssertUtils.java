@@ -44,6 +44,30 @@ public class AssertUtils {
         }
     }
 
+    /**
+     * 对象不为 null 抛出异常
+     * @param object 对象
+     * @param message 抛出异常信息
+     * @throws IllegalStateException 异常信息
+     */
+    public static void isNull(Object object, String message) {
+        if (object != null) {
+            throw new IllegalArgumentException(message);
+        }
+    }
+
+    /**
+     * 对象为 null 抛出异常
+     * @param object 对象
+     * @param message 抛出异常信息
+     * @throws IllegalStateException 异常信息
+     */
+    public static void notNull(Object object, String message) {
+        if (object == null) {
+            throw new IllegalArgumentException(message);
+        }
+    }
+
     private AssertUtils(){}
 
 }

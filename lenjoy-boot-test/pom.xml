@@ -36,10 +36,9 @@
         </dependency>
 
         <dependency>
-            <groupId>cn.lenjoy.boot</groupId>
-            <artifactId>lenjoy-spring-boot-starter-security</artifactId>
-            <version>${lenjoy.version}</version>
-            <scope>compile</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>2.7.0</version>
         </dependency>
 
         <dependency>
