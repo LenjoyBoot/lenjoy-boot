@@ -36,11 +36,4 @@ public class LenjoySecurityProperties {
     @NotNull(message = "Session 过期时间, 不能为空")
     private Duration sessionTimeout;
 
-    /**
-     * 是否开启模拟模式 mock
-     * mock 将允许获取模拟用户信息
-     */
-    @NotNull(message = "是否开启模拟模式, 不能为空")
-    private Boolean mockEnable;
-
 }

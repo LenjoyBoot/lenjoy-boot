@@ -1,10 +1,15 @@
 package cn.lenjoy.boot.framework.security.core;
 
+import cn.lenjoy.boot.framework.common.util.AssertUtils;
+import cn.lenjoy.boot.framework.common.util.function.IFunction;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -30,7 +35,7 @@ public class LenjoyUserDetails implements UserDetails {
     /**
      * 权限列表
      */
-    private final Set<GrantedAuthority> authorities;
+    private final Collection<? extends GrantedAuthority> authorities;
 
     /**
      * 账号是否过期
@@ -101,7 +106,7 @@ public class LenjoyUserDetails implements UserDetails {
 
     @Override
     @JsonIgnore
-    public Set<GrantedAuthority> getAuthorities() {
+    public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }
 
@@ -127,5 +132,89 @@ public class LenjoyUserDetails implements UserDetails {
     @JsonIgnore
     public boolean isEnabled() {
         return enabled;
+    }
+
+    /**
+     * 创建用户信息构造对象
+     * @return 用户信息构造对象
+     */
+    public static LenjoyUserBuilder builder() {
+        return new LenjoyUserBuilder();
+    }
+
+    /**
+     * 创建用户信息构造对象
+     * @param username 用户名
+     * @return 用户信息构造对象
+     */
+    public static LenjoyUserBuilder withUsername(String username) {
+        return builder().username(username);
+    }
+
+    /**
+     * 创建用户信息构造对象
+     * @param userDetails 用户信息
+     * @return 用户信息构造对象
+     */
+    public static LenjoyUserBuilder withUserDetails(UserDetails userDetails) {
+        return withUsername(userDetails.getUsername())
+                .password(userDetails.getPassword())
+                .authorities(userDetails.getAuthorities());
+    }
+
+    //TODO 密码策略
+
+
+    /**
+     * 用户信息构造对象
+     */
+    public static final class LenjoyUserBuilder {
+        private String password;
+        private String username;
+        private Set<GrantedAuthority> authorities;
+        private IFunction<String, String> passwordEncoder = pwd -> password;
+
+        private LenjoyUserBuilder() {
+        }
+
+        public LenjoyUserBuilder password(String password) {
+            AssertUtils.notNull(password, "密码,不可为空");
+            this.password = password;
+            return this;
+        }
+
+        public LenjoyUserBuilder username(String username) {
+            AssertUtils.notNull(username, "用户名,不可为空");
+            this.username = username;
+            return this;
+        }
+
+        public LenjoyUserBuilder passwordEncoder(IFunction<String, String> passwordEncoder) {
+            AssertUtils.notNull(passwordEncoder, "密码加密策略,不可为空");
+            this.passwordEncoder = passwordEncoder;
+            return this;
+        }
+
+        public LenjoyUserBuilder authorities(Collection<? extends GrantedAuthority> authorities) {
+            this.authorities = new HashSet<>(authorities);
+            return this;
+        }
+
+        public LenjoyUserBuilder authorities(String... authorities) {
+            return authorities(createAuthorityList(authorities));
+        }
+
+        public static Set<GrantedAuthority> createAuthorityList(String... authorities) {
+            Set<GrantedAuthority> grantedAuthorities = new HashSet<>(authorities.length);
+            for (String authority : authorities) {
+                grantedAuthorities.add(new SimpleGrantedAuthority(authority));
+            }
+            return grantedAuthorities;
+        }
+
+        public LenjoyUserDetails build() {
+            String encodedPassword = this.passwordEncoder.apply(this.password);
+            return new LenjoyUserDetails(encodedPassword, username, authorities);
+        }
     }
 }

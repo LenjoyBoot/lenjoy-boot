@@ -12,7 +12,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum StatusEnum {
-
+    /**
+     * 用户状态 0 可用 1 禁用
+     */
     ENABLE(0, "可用"),
     DISABLE(1, "禁用"),
     ;
