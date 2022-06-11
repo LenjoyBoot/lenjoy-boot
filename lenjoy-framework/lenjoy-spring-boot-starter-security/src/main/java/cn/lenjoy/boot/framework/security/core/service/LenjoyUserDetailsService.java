@@ -14,21 +14,20 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 public interface LenjoyUserDetailsService extends UserDetailsService {
 
     /**
-     * 校验 token，返回 用户信息
-     * 若 token 失效，可刷新 token
+     * 校验 token，返回用户信息
+     *
+     * @param token token
+     * @return 用户信息
+     */
+    LenjoyUserDetails verifyToken(String token);
+
+    /**
+     * 校验 token 并刷新 token，返回用户信息
      *
      * @param token token
      * @return 用户信息
      */
     LenjoyUserDetails verifyTokenAndRefresh(String token);
-
-    /**
-     * 模拟指定用户编号的用户信息
-     *
-     * @param userId 用户编号
-     * @return 用户信息
-     */
-    LenjoyUserDetails mockLogin(Long userId);
 
     /**
      * 基于 token 退出登录

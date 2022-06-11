@@ -8,6 +8,12 @@ package cn.lenjoy.boot.framework.common.util.string;
  */
 @SuppressWarnings("unused")
 public class StringUtils {
+    private static final String[] EMPTY_STRING_ARRAY = new String[0];
+
+    /**
+     * 私有构造方法
+     */
+    private StringUtils() {}
 
     /**
      * 字符串是否相等
@@ -120,16 +126,6 @@ public class StringUtils {
     }
 
     /**
-     * 对象是否不为空
-     *
-     * @param obj 对象
-     * @return 是否不为空
-     */
-    public static boolean isNotNull(Object obj) {
-        return !isNull(obj);
-    }
-
-    /**
      * 对象是否为空
      *
      * @param obj 对象
@@ -140,7 +136,35 @@ public class StringUtils {
     }
 
     /**
-     * 私有构造方法
+     * 字符串转字符串数组,通过分隔符
+     *
+     * @param str 字符串
+     * @param delimiter 分隔符
+     * @return 字符串数组
      */
-    private StringUtils() {}
+    public static String[] stringToStringArray(String str, String delimiter) {
+        return str.split(delimiter);
+    }
+
+    /**
+     * 字符串数组转字符串,通过分隔符
+     *
+     * @param str 字符串数组
+     * @param delimiter 分隔符
+     * @return 字符串
+     */
+    public static String stringToStringArray(String delimiter, String... str) {
+        return String.join(delimiter, str);
+    }
+
+    /**
+     * 字符串数组转字符串,通过分隔符
+     *
+     * @param str 字符串数组
+     * @param delimiter 分隔符
+     * @return 字符串
+     */
+    public static String stringToStringArray(String[] str, String delimiter) {
+        return String.join(delimiter, str);
+    }
 }

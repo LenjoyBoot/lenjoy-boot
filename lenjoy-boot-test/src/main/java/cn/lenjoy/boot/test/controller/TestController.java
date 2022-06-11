@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -64,15 +65,15 @@ public class TestController {
 
     @GetMapping(value = "ip")
     @ApiOperation(tags = "ip", value = "value", notes = "notes")
-    public String ip() {
-        String clientIP = ServletUtils.getClientIP();
+    public String ip(HttpServletRequest request) {
+        String clientIP = ServletUtils.getClientIP(request);
         return JSON.toJSONString(clientIP);
     }
 
     @GetMapping(value = "ua")
     @ApiOperation(tags = "ua", value = "value", notes = "notes")
-    public String ua() {
-        String userAgent = ServletUtils.getUserAgent();
+    public String ua(HttpServletRequest request) {
+        String userAgent = ServletUtils.getUserAgent(request);
         return JSON.toJSONString(userAgent);
     }
 

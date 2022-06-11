@@ -25,6 +25,40 @@ public class ServletUtils {
     private ServletUtils() {}
 
     /**
+     * 从客户端请求获取键值对
+     * 仅浏览器请求获取表单数据
+     *
+     * @param request 请求
+     * @param key 键
+     */
+    public static String getParameter(HttpServletRequest request, String key) {
+        return request.getParameter(key);
+    }
+
+    /**
+     * 从请求获取键值对
+     * 仅 web 容器内部流转
+     *
+     * @param request 请求
+     * @param key 键
+     */
+    public static Object getAttribute(HttpServletRequest request, String key) {
+        return request.getAttribute(key);
+    }
+
+    /**
+     * 给请求设置键值对
+     * 仅 web 容器内部流转
+     *
+     * @param request 请求
+     * @param key 键
+     * @param value 值
+     */
+    public static void setAttribute(HttpServletRequest request, String key, Object value) {
+        request.setAttribute(key, value);
+    }
+
+    /**
      * 客户端输出 JSON 字符串
      *
      * @param response 响应
@@ -72,8 +106,7 @@ public class ServletUtils {
      *
      * @return 请求 ua 信息
      */
-    public static String getUserAgent() {
-        HttpServletRequest request = getRequest();
+    public static String getUserAgent(HttpServletRequest request) {
         if (request == null) {
             return null;
         }
@@ -86,21 +119,10 @@ public class ServletUtils {
      *
      * @return 返回 IP 地址
      */
-    public static String getClientIP() {
-        HttpServletRequest request = getRequest();
+    public static String getClientIP(HttpServletRequest request) {
         if (request == null) {
             return null;
         }
-        return getClientIP(request);
-    }
-
-    /**
-     * 获取用户请求 IP 地址
-     *
-     * @param request 请求
-     * @return 返回 IP 地址
-     */
-    public static String getClientIP(HttpServletRequest request) {
         String[] headers = { "X-Forwarded-For", "X-Real-IP", "Proxy-Client-IP", "WL-Proxy-Client-IP", "HTTP_CLIENT_IP", "HTTP_X_FORWARDED_FOR", "WL-Proxy-Client-IP", "X-Real-IP" };
         String ip;
         for (String header : headers) {

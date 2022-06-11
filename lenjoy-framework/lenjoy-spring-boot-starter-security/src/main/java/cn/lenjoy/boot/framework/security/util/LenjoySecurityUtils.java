@@ -4,9 +4,11 @@ import cn.lenjoy.boot.framework.common.util.object.ObjectUtils;
 import cn.lenjoy.boot.framework.common.util.servlet.ServletUtils;
 import cn.lenjoy.boot.framework.common.util.string.StringUtils;
 import cn.lenjoy.boot.framework.security.core.LenjoyUserDetails;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,6 +20,10 @@ import javax.servlet.http.HttpServletRequest;
  */
 @SuppressWarnings("unused")
 public class LenjoySecurityUtils {
+    /**
+     * 用户信息 键
+     */
+    private static final String LENJOY_USER_DETAILS = "lenjoyUserDetails";
 
     private LenjoySecurityUtils() {}
 
@@ -67,4 +73,22 @@ public class LenjoySecurityUtils {
         return authentication.getPrincipal() instanceof LenjoyUserDetails ? (LenjoyUserDetails) authentication.getPrincipal() : null;
     }
 
+
+    /**
+     * 设置用户信息到 Security 上下文
+     *
+     * @param lenjoyUserDetails 用户信息
+     */
+    public static void setLenjoyUserDetails(LenjoyUserDetails lenjoyUserDetails, HttpServletRequest request) {
+        // 设置用户信息到 Security 上下文
+        SecurityContextHolder.getContext().setAuthentication(buildAuthentication(lenjoyUserDetails, request));
+        // 设置用户信息到 web 容器中，可供请求调用链条直接使用，例如：过滤链，异常捕捉等
+        request.setAttribute(LENJOY_USER_DETAILS, lenjoyUserDetails);
+    }
+
+    private static Authentication buildAuthentication(LenjoyUserDetails lenjoyUserDetails, HttpServletRequest request) {
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(lenjoyUserDetails, null, lenjoyUserDetails.getAuthorities());
+        authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        return authenticationToken;
+    }
 }
