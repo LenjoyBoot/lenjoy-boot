@@ -1,7 +1,7 @@
 package cn.lenjoy.boot.framework.security.core.service;
 
 import cn.lenjoy.boot.framework.common.enums.UserTypeEnum;
-import cn.lenjoy.boot.framework.security.core.LenjoyUserDetails;
+import cn.lenjoy.boot.framework.security.core.userdetails.LenjoyUserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
@@ -12,14 +12,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  */
 @SuppressWarnings("unused")
 public interface LenjoyUserDetailsService extends UserDetailsService {
-
-    /**
-     * 校验 token，返回用户信息
-     *
-     * @param token token
-     * @return 用户信息
-     */
-    LenjoyUserDetails verifyToken(String token);
 
     /**
      * 校验 token 并刷新 token，返回用户信息

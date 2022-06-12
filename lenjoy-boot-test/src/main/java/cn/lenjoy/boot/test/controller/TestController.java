@@ -33,14 +33,14 @@ import java.util.List;
 public class TestController {
 
     @GetMapping(value = "")
-    @ApiOperation(tags = "test", value = "value", notes = "notes")
+    @ApiOperation(value = "test", notes = "notes")
     public String test() {
         AssertUtils.isTrue(true, "true");
         return JSON.toJSONString("true");
     }
 
     @GetMapping(value = "write")
-    @ApiOperation(tags = "write", value = "value", notes = "notes")
+    @ApiOperation(value = "write", notes = "notes")
     public String write(HttpServletResponse response) throws IOException {
         List<NewClass> list = new ArrayList<>();
         NewClass aClass = new NewClass();
@@ -52,7 +52,7 @@ public class TestController {
     }
 
     @GetMapping(value = "read")
-    @ApiOperation(tags = "read", value = "value", notes = "notes")
+    @ApiOperation(value = "read", notes = "notes")
     public String read(MultipartFile file) throws IOException {
         List<NewClass> list = ExcelUtils.read(file, NewClass.class, new LenjoyReadListener<NewClass>() {
             @Override
@@ -64,21 +64,21 @@ public class TestController {
     }
 
     @GetMapping(value = "ip")
-    @ApiOperation(tags = "ip", value = "value", notes = "notes")
+    @ApiOperation(value = "ip", notes = "notes")
     public String ip(HttpServletRequest request) {
         String clientIP = ServletUtils.getClientIP(request);
         return JSON.toJSONString(clientIP);
     }
 
     @GetMapping(value = "ua")
-    @ApiOperation(tags = "ua", value = "value", notes = "notes")
+    @ApiOperation(value = "ua", notes = "notes")
     public String ua(HttpServletRequest request) {
         String userAgent = ServletUtils.getUserAgent(request);
         return JSON.toJSONString(userAgent);
     }
 
     @GetMapping(value = "jwt")
-    @ApiOperation(tags = "jwt", value = "value", notes = "notes")
+    @ApiOperation(value = "jwt", notes = "notes")
     public String jwt() {
 //        String jwtToken = LenjoySecurityUtils.getJwtToken();
         return JSON.toJSONString("jwtToken");

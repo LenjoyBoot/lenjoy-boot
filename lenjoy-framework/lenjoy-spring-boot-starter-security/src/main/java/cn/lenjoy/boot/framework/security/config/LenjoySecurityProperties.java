@@ -25,15 +25,15 @@ public class LenjoySecurityProperties {
     private String tokenHeader;
 
     /**
+     * 访问令牌的请求 Header 开头前缀
+     */
+    @NotEmpty(message = "访问令牌的请求 Header 开头前缀, 不能为空")
+    private String tokenHeaderPrefix;
+
+    /**
      * Token 过期时间
      */
     @NotNull(message = "Token 过期时间, 不能为空")
     private Duration tokenTimeout;
-
-    /**
-     * Session 过期时间
-     */
-    @NotNull(message = "Session 过期时间, 不能为空")
-    private Duration sessionTimeout;
 
 }

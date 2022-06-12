@@ -1,4 +1,4 @@
-package cn.lenjoy.boot.framework.security.core;
+package cn.lenjoy.boot.framework.security.core.userdetails;
 
 import cn.lenjoy.boot.framework.common.enums.StatusEnum;
 import cn.lenjoy.boot.framework.common.util.AssertUtils;

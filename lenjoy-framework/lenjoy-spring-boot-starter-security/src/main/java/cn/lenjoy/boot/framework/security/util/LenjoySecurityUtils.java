@@ -1,9 +1,8 @@
 package cn.lenjoy.boot.framework.security.util;
 
 import cn.lenjoy.boot.framework.common.util.object.ObjectUtils;
-import cn.lenjoy.boot.framework.common.util.servlet.ServletUtils;
 import cn.lenjoy.boot.framework.common.util.string.StringUtils;
-import cn.lenjoy.boot.framework.security.core.LenjoyUserDetails;
+import cn.lenjoy.boot.framework.security.core.userdetails.LenjoyUserDetails;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
@@ -11,6 +10,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 
 import javax.servlet.http.HttpServletRequest;
+
+import static cn.lenjoy.boot.framework.common.constant.CommonConstant.LENJOY;
+import static cn.lenjoy.boot.framework.common.constant.CommonConstant.LENJOY_USER_DETAILS;
 
 /**
  * @description: 乐享用户认证信息工具类
@@ -20,10 +22,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 @SuppressWarnings("unused")
 public class LenjoySecurityUtils {
-    /**
-     * 用户信息 键
-     */
-    private static final String LENJOY_USER_DETAILS = "lenjoyUserDetails";
 
     private LenjoySecurityUtils() {}
 
@@ -32,16 +30,15 @@ public class LenjoySecurityUtils {
      *
      * @return token
      */
-    public static String getJwtToken() {
-        HttpServletRequest request = ServletUtils.getRequest();
+    public static String obtainAuthorization(HttpServletRequest request, String tokenHeader, String tokenHeaderPrefix) {
         if (ObjectUtils.isNull(request)) {
             return null;
         }
-        String authorization = request.getHeader("Authorization");
+        String authorization = request.getHeader(tokenHeader);
         if (StringUtils.isBlank(authorization)) {
             return null;
         }
-        if (!authorization.startsWith("Bearer ")) {
+        if (!authorization.startsWith(tokenHeaderPrefix)) {
             return null;
         }
         return authorization.substring(7).trim();
@@ -71,6 +68,16 @@ public class LenjoySecurityUtils {
             return null;
         }
         return authentication.getPrincipal() instanceof LenjoyUserDetails ? (LenjoyUserDetails) authentication.getPrincipal() : null;
+    }
+
+    /**
+     * 获取当前用户名
+     *
+     * @return 当前用户名
+     */
+    public static String getUsername() {
+        LenjoyUserDetails lenjoyUserDetails = getLenjoyUserDetails();
+        return lenjoyUserDetails != null ? lenjoyUserDetails.getUsername() : null;
     }
 
 

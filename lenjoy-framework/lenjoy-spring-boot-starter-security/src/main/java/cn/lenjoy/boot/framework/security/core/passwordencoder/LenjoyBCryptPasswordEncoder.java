@@ -1,4 +1,4 @@
-package cn.lenjoy.boot.framework.security.core.handler;
+package cn.lenjoy.boot.framework.security.core.passwordencoder;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
