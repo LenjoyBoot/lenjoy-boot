@@ -61,6 +61,16 @@
                 <artifactId>lenjoy-common</artifactId>
                 <version>${lenjoy.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.lenjoy.boot</groupId>
+                <artifactId>lenjoy-spring-boot-starter-web</artifactId>
+                <version>${lenjoy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.lenjoy.boot</groupId>
+                <artifactId>lenjoy-spring-boot-starter-security</artifactId>
+                <version>${lenjoy.version}</version>
+            </dependency>
 
             <!--database-->
             <dependency>

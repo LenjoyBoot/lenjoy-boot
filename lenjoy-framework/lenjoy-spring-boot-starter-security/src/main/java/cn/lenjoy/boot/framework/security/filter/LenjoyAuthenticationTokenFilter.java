@@ -20,12 +20,12 @@ import java.io.IOException;
  * @date: Create By lenjoy's bincloud,mvpzhou on 2022 06 12 星期日
  * @version: 1.0.0
  */
-public class TokenAuthenticationTokenFilter extends OncePerRequestFilter {
+public class LenjoyAuthenticationTokenFilter extends OncePerRequestFilter {
 
     private final LenjoySecurityProperties lenjoySecurityProperties;
     private final LenjoyUserDetailsAuthenticationProvider lenjoyUserDetailsAuthenticationProvider;
 
-    public TokenAuthenticationTokenFilter(LenjoySecurityProperties lenjoySecurityProperties, LenjoyUserDetailsAuthenticationProvider lenjoyUserDetailsAuthenticationProvider) {
+    public LenjoyAuthenticationTokenFilter(LenjoySecurityProperties lenjoySecurityProperties, LenjoyUserDetailsAuthenticationProvider lenjoyUserDetailsAuthenticationProvider) {
         this.lenjoySecurityProperties = lenjoySecurityProperties;
         this.lenjoyUserDetailsAuthenticationProvider = lenjoyUserDetailsAuthenticationProvider;
     }

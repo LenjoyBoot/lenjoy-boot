@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.Writer;
 import java.net.URLEncoder;
 
+import static cn.lenjoy.boot.framework.common.constant.CommonConstant.APPLICATION_JSON_UTF8_VALUE;
+
 /**
  * @description: 客户端工具类
  * @author: lenjoy's bincloud,mvpzhou
@@ -66,7 +68,7 @@ public class ServletUtils {
      */
     public static void writeJSON(HttpServletResponse response, Object object) {
         String content = JsonUtils.toJsonString(object);
-        write(response, content, MediaType.APPLICATION_JSON_VALUE);
+        write(response, content, APPLICATION_JSON_UTF8_VALUE);
     }
 
     /**

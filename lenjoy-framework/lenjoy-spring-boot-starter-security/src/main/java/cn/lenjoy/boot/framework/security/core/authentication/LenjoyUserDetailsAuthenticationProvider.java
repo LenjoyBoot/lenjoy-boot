@@ -2,7 +2,6 @@ package cn.lenjoy.boot.framework.security.core.authentication;
 
 import cn.lenjoy.boot.framework.common.enums.UserTypeEnum;
 import cn.lenjoy.boot.framework.common.util.AssertUtils;
-import cn.lenjoy.boot.framework.security.core.passwordencoder.LenjoyBCryptPasswordEncoder;
 import cn.lenjoy.boot.framework.security.core.service.LenjoyUserDetailsService;
 import cn.lenjoy.boot.framework.security.core.userdetails.LenjoyUserDetails;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +10,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.EnumMap;
@@ -29,12 +29,12 @@ import static cn.lenjoy.boot.framework.common.constant.CommonConstant.*;
 public class LenjoyUserDetailsAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
 
     private final Map<UserTypeEnum, LenjoyUserDetailsService> services = new EnumMap<>(UserTypeEnum.class);
-    private final LenjoyBCryptPasswordEncoder lenjoyBCryptPasswordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
-    public LenjoyUserDetailsAuthenticationProvider(List<LenjoyUserDetailsService> lenjoyUserDetailsServiceList, LenjoyBCryptPasswordEncoder lenjoyBCryptPasswordEncoder) {
+    public LenjoyUserDetailsAuthenticationProvider(List<LenjoyUserDetailsService> lenjoyUserDetailsServiceList, PasswordEncoder passwordEncoder) {
         // 从 spring 容器获取 bean, 并根据不同类型用户，放入多个不同用户类型的服务中
         lenjoyUserDetailsServiceList.forEach(service -> services.put(service.getUserType(), service));
-        this.lenjoyBCryptPasswordEncoder = lenjoyBCryptPasswordEncoder;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class LenjoyUserDetailsAuthenticationProvider extends AbstractUserDetails
         }
         // 验证密码信息
         String encodePassword = authentication.getCredentials().toString();
-        if (lenjoyBCryptPasswordEncoder.matches(encodePassword, userDetails.getPassword())) {
+        if (passwordEncoder.matches(encodePassword, userDetails.getPassword())) {
             logger.debug("验证失败，因为密码与存储的值不匹配");
             throw new BadCredentialsException("损坏的用户凭证信息");
         }
@@ -115,6 +115,9 @@ public class LenjoyUserDetailsAuthenticationProvider extends AbstractUserDetails
         }
         throw new IllegalArgumentException(String.format("URI[%s], 根据URL未匹配到对应的用户类型", requestURI));
     }
+
+
+    //TokenAuthenticationTokenFilter 验证注销处理相关
 
     /**
      * 通过 token 注销用户

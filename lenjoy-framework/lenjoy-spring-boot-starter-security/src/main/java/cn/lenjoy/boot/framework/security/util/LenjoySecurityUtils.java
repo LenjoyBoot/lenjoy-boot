@@ -11,7 +11,6 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 
 import javax.servlet.http.HttpServletRequest;
 
-import static cn.lenjoy.boot.framework.common.constant.CommonConstant.LENJOY;
 import static cn.lenjoy.boot.framework.common.constant.CommonConstant.LENJOY_USER_DETAILS;
 
 /**

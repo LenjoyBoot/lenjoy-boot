@@ -12,6 +12,7 @@ import java.util.Collection;
  * @date: Create By lenjoy's bincloud,mvpzhou on 2022 06 12 星期日
  * @version: 1.0.0
  */
+@SuppressWarnings("unused")
 public class LenjoyUsernamePasswordAuthenticationToken extends UsernamePasswordAuthenticationToken {
 
     private final transient UserTypeEnum userTypeEnum;

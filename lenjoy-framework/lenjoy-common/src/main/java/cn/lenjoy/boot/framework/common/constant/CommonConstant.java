@@ -11,6 +11,8 @@ public class CommonConstant {
 
     private CommonConstant() {}
 
+    // AUTH
+
     /**
      * 用户信息 键
      */
@@ -31,23 +33,42 @@ public class CommonConstant {
      */
     public static final String BEARER = "Bearer ";
 
+    // MediaType
+
+    /**
+     * 用户认证JWT 键
+     */
+    public static final String APPLICATION_JSON_UTF8_VALUE = "application/json;charset=UTF-8";
+
+    // API
+
     /**
      * 游客用户API前缀
      */
     public static final String PREFIX_API_TOURIST = "/tourist";
 
     /**
-     * 会员用户API前缀
+     * 会员用户AUTH API前缀
      */
     public static final String PREFIX_API_MEMBER = "/member";
 
     /**
-     * 商户用户API前缀
+     * 商户用户AUTH API前缀
      */
     public static final String PREFIX_API_BUSINESS = "/business";
 
     /**
-     * 后台用户API前缀
+     * 后台用户AUTH API前缀
      */
     public static final String PREFIX_API_ADMIN = "/admin";
+
+    /**
+     * 用户认证AUTH API前缀
+     */
+    public static final String PREFIX_API_AUTH = "/auth/**";
+
+    /**
+     * 用户注销 API前缀
+     */
+    public static final String PREFIX_API_LOGOUT = "/logout";
 }
