@@ -83,6 +83,7 @@ public class LenjoySecurityAutoConfiguration {
 
     /**
      * Security 的上下文策略 Bean
+     * 通过 MethodInvokingFactoryBean(FactoryBean) 将 LenjoySecurityContextHolderStrategy 策略配置到 SecurityContextHolder
      */
     @Bean
     public MethodInvokingFactoryBean methodInvokingFactoryBean() {
