@@ -1,4 +1,4 @@
-package cn.lenjoy.boot.framework.security.util;
+package cn.lenjoy.boot.framework.security.core.util;
 
 import cn.lenjoy.boot.framework.common.util.AssertUtils;
 import cn.lenjoy.boot.framework.common.util.string.StringUtils;

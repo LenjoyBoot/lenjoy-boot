@@ -1,10 +1,10 @@
-package cn.lenjoy.boot.framework.security.filter;
+package cn.lenjoy.boot.framework.security.core.filter;
 
 import cn.lenjoy.boot.framework.common.util.string.StringUtils;
 import cn.lenjoy.boot.framework.security.config.LenjoySecurityProperties;
 import cn.lenjoy.boot.framework.security.core.authentication.LenjoyUserDetailsAuthenticationProvider;
 import cn.lenjoy.boot.framework.security.core.userdetails.LenjoyUserDetails;
-import cn.lenjoy.boot.framework.security.util.LenjoySecurityUtils;
+import cn.lenjoy.boot.framework.security.core.util.LenjoySecurityUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;

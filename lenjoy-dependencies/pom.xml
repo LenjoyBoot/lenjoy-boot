@@ -23,8 +23,10 @@
         <spring.boot.version>2.7.0</spring.boot.version>
 
         <!--database-->
+        <mysql.version>8.0.29</mysql.version>
         <druid.version>1.2.9</druid.version>
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <dynamic-datasource.version>3.5.1</dynamic-datasource.version>
         <redisson.version>3.17.3</redisson.version>
 
         <!--config-->
@@ -76,6 +78,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -86,6 +89,11 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId> <!-- 多数据源 -->
+                <version>${dynamic-datasource.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.redisson</groupId>

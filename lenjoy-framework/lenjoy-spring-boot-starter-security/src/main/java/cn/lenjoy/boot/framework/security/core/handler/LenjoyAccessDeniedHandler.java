@@ -3,7 +3,7 @@ package cn.lenjoy.boot.framework.security.core.handler;
 import cn.lenjoy.boot.framework.common.util.json.JsonUtils;
 import cn.lenjoy.boot.framework.common.util.result.ResultUtils;
 import cn.lenjoy.boot.framework.common.util.servlet.ServletUtils;
-import cn.lenjoy.boot.framework.security.util.LenjoySecurityUtils;
+import cn.lenjoy.boot.framework.security.core.util.LenjoySecurityUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;

@@ -1,4 +1,4 @@
-package cn.lenjoy.boot.framework.common.constant;
+package cn.lenjoy.boot.framework.mybatis.core.constant;
 
 /**
  * @description: SQL 常用

@@ -22,6 +22,7 @@
         <module>lenjoy-spring-boot-starter-web</module>
         <module>lenjoy-spring-boot-starter-excel</module>
         <module>lenjoy-spring-boot-starter-security</module>
+        <module>lenjoy-spring-boot-starter-mybatis</module>
     </modules>
 
     <name>${project.artifactId}</name>

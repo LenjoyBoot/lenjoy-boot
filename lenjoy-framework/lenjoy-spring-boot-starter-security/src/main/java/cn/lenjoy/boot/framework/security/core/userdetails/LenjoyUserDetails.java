@@ -3,7 +3,7 @@ package cn.lenjoy.boot.framework.security.core.userdetails;
 import cn.lenjoy.boot.framework.common.enums.StatusEnum;
 import cn.lenjoy.boot.framework.common.util.AssertUtils;
 import cn.lenjoy.boot.framework.common.util.function.IFunction;
-import cn.lenjoy.boot.framework.security.util.LenjoyAuthorityUtils;
+import cn.lenjoy.boot.framework.security.core.util.LenjoyAuthorityUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.SpringSecurityCoreVersion;
@@ -80,10 +80,37 @@ public class LenjoyUserDetails implements UserDetails {
      */
     private Integer userType;
 
-    /**
-     * 租户编号
-     */
-    private Long tenantId;
+    public LocalDateTime getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin(LocalDateTime lastLogin) {
+        this.lastLogin = lastLogin;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
+
+    public Integer getUserType() {
+        return userType;
+    }
+
+    public void setUserType(Integer userType) {
+        this.userType = userType;
+    }
 
     /**
      * 构造函数 boolean 全部置为 true

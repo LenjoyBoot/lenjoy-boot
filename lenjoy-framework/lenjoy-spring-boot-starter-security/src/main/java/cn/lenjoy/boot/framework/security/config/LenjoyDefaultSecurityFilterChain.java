@@ -5,7 +5,7 @@ import cn.lenjoy.boot.framework.security.core.authentication.LenjoyUserDetailsAu
 import cn.lenjoy.boot.framework.security.core.handler.LenjoyAccessDeniedHandler;
 import cn.lenjoy.boot.framework.security.core.handler.LenjoyAuthenticationEntryPoint;
 import cn.lenjoy.boot.framework.security.core.handler.LenjoyLogoutSuccessHandler;
-import cn.lenjoy.boot.framework.security.filter.LenjoyAuthenticationTokenFilter;
+import cn.lenjoy.boot.framework.security.core.filter.LenjoyAuthenticationTokenFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

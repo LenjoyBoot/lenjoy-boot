@@ -1,7 +1,7 @@
 package cn.lenjoy.boot.test.dto;
 
 import cn.lenjoy.boot.framework.security.core.userdetails.LenjoyUserDetails;
-import cn.lenjoy.boot.framework.security.util.LenjoyAuthorityUtils;
+import cn.lenjoy.boot.framework.security.core.util.LenjoyAuthorityUtils;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Set;

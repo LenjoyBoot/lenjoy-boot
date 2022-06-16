@@ -2,12 +2,13 @@ package cn.lenjoy.boot.framework.security.config;
 
 import cn.lenjoy.boot.framework.security.core.authentication.LenjoyUserDetailsAuthenticationProvider;
 import cn.lenjoy.boot.framework.security.core.context.LenjoySecurityContextHolderStrategy;
+import cn.lenjoy.boot.framework.security.core.filter.LenjoyAuthenticationTokenFilter;
 import cn.lenjoy.boot.framework.security.core.handler.LenjoyAccessDeniedHandler;
 import cn.lenjoy.boot.framework.security.core.handler.LenjoyAuthenticationEntryPoint;
+import cn.lenjoy.boot.framework.security.core.handler.LenjoyHandlerInterceptor;
 import cn.lenjoy.boot.framework.security.core.handler.LenjoyLogoutSuccessHandler;
 import cn.lenjoy.boot.framework.security.core.passwordencoder.LenjoyBCryptPasswordEncoder;
 import cn.lenjoy.boot.framework.security.core.service.LenjoyUserDetailsService;
-import cn.lenjoy.boot.framework.security.filter.LenjoyAuthenticationTokenFilter;
 import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -100,5 +101,10 @@ public class LenjoySecurityAutoConfiguration {
     @Bean
     public LenjoyAuthenticationTokenFilter lenjoyAuthenticationTokenFilter(LenjoyUserDetailsAuthenticationProvider lenjoyUserDetailsAuthenticationProvider) {
         return new LenjoyAuthenticationTokenFilter(lenjoySecurityProperties, lenjoyUserDetailsAuthenticationProvider);
+    }
+
+    @Bean
+    public LenjoyHandlerInterceptor lenjoyHandlerInterceptor() {
+        return new LenjoyHandlerInterceptor();
     }
 }

@@ -6,7 +6,7 @@ import cn.lenjoy.boot.framework.common.util.servlet.ServletUtils;
 import cn.lenjoy.boot.framework.common.util.string.StringUtils;
 import cn.lenjoy.boot.framework.security.config.LenjoySecurityProperties;
 import cn.lenjoy.boot.framework.security.core.authentication.LenjoyUserDetailsAuthenticationProvider;
-import cn.lenjoy.boot.framework.security.util.LenjoySecurityUtils;
+import cn.lenjoy.boot.framework.security.core.util.LenjoySecurityUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
