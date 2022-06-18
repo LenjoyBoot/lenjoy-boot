@@ -20,25 +20,27 @@
         <dependency>
             <groupId>cn.lenjoy.boot</groupId>
             <artifactId>lenjoy-spring-boot-starter-captcha</artifactId>
-            <version>${lenjoy.version}</version>
         </dependency>
-
         <dependency>
             <groupId>cn.lenjoy.boot</groupId>
             <artifactId>lenjoy-spring-boot-starter-web</artifactId>
-            <version>${lenjoy.version}</version>
         </dependency>
-
         <dependency>
             <groupId>cn.lenjoy.boot</groupId>
             <artifactId>lenjoy-spring-boot-starter-excel</artifactId>
-            <version>${lenjoy.version}</version>
         </dependency>
-
         <dependency>
             <groupId>cn.lenjoy.boot</groupId>
             <artifactId>lenjoy-spring-boot-starter-security</artifactId>
-            <version>${lenjoy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.lenjoy.boot</groupId>
+            <artifactId>lenjoy-spring-boot-starter-mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.lenjoy.boot</groupId>
+            <artifactId>lenjoy-spring-boot-starter-redis</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>

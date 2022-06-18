@@ -25,7 +25,7 @@ public class LenjoyUserThreadLocalHolder {
     }
 
     /**
-     *
+     * 清空用户信息
      */
     public static void remove() {
         threadLocalHolder.remove();

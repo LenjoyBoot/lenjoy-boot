@@ -5,6 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @description: 分页结果类
@@ -30,6 +32,17 @@ public final class PageRes<T> implements Serializable {
     private Long total;
 
     @ApiModelProperty(value = "分页数据")
-    private transient T list;
+    private transient List<T> list;
 
+    public PageRes(Long pageNo, Long pageSize, Long totalPage, Long total, List<T> list) {
+        this.pageNo = pageNo;
+        this.pageSize = pageSize;
+        this.totalPage = totalPage;
+        this.total = total;
+        this.list = list;
+    }
+
+    public static <T> PageRes<T> emptyPageRes(Long pageNo, Long pageSize) {
+        return new PageRes<>(pageNo, pageSize, 0L, 0L, new ArrayList<>());
+    }
 }

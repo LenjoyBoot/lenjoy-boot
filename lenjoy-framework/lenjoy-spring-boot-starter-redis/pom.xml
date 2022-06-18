@@ -9,8 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.lenjoy.boot.framework.redis</groupId>
-
     <artifactId>lenjoy-spring-boot-starter-redis</artifactId>
 
     <packaging>jar</packaging>
@@ -23,6 +21,11 @@
         <dependency>
             <groupId>cn.lenjoy.boot</groupId>
             <artifactId>lenjoy-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <dependency>

@@ -7,8 +7,8 @@
  * 多租户设计(V1.0.0暂不进行实现，未来实现)
  * 1.分库(可通过多数据源实现)
  * 1.1 dynamic-datasource-spring-boot-starter 多数据源支持,需排除默认数据库连接池实现,例如druid
- * 2.分表(可通过表前缀策略实现)
- * 3.同库同表(可通过租户编号实现)
+ * 1.2.分表(可通过表前缀策略实现)
+ * 1.3.同库同表(可通过租户编号实现)
  *
  * @author: lenjoy's bincloud,mvpzhou
  * @date: Create By lenjoy's bincloud,mvpzhou on 2022 04 16 星期六

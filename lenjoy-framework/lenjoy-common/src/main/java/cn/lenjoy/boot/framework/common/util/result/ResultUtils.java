@@ -3,7 +3,6 @@ package cn.lenjoy.boot.framework.common.util.result;
 import cn.lenjoy.boot.framework.common.base.CodeMsg;
 import cn.lenjoy.boot.framework.common.base.response.BaseRes;
 import cn.lenjoy.boot.framework.common.exception.ErrorCodeMsg;
-import lombok.Data;
 
 import java.io.Serializable;
 
@@ -13,7 +12,6 @@ import java.io.Serializable;
  * @date: Create By lenjoy's bincloud,mvpzhou on 2022 04 16 星期六
  * @version: 1.0.0
  */
-@Data
 @SuppressWarnings("unused")
 public final class ResultUtils<T> implements Serializable {
 
