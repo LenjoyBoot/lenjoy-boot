@@ -20,7 +20,7 @@
         <lenjoy.version>1.0.0-SNAPSHOT</lenjoy.version>
 
         <!--springboot-->
-        <spring.boot.version>2.7.0</spring.boot.version>
+        <spring.boot.version>2.7.2</spring.boot.version>
 
         <!--database-->
         <mysql.version>8.0.29</mysql.version>
@@ -38,6 +38,7 @@
         <springfox.verion>3.0.0</springfox.verion>
         <knife4j.verion>3.0.3</knife4j.verion>
         <fastjson2.version>2.0.5</fastjson2.version>
+        <velocity.version>2.3</velocity.version>
     </properties>
 
     <dependencyManagement>
@@ -147,6 +148,16 @@
                 <groupId>com.alibaba.fastjson2</groupId>
                 <artifactId>fastjson2</artifactId>
                 <version>${fastjson2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity.version}</version>
             </dependency>
 
         </dependencies>

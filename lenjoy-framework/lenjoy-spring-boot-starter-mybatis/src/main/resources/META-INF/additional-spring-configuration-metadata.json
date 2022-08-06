@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "lenjoy.mybatis.basePackage",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.mybatis.basePackage."
+    },
+    {
+      "name": "lenjoy.mybatis.enable",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.mybatis.enable."
+    }
+  ]
+}

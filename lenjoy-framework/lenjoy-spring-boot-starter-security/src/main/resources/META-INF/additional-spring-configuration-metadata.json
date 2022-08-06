@@ -1,6 +1,16 @@
 {
   "properties": [
     {
+      "name": "lenjoy.security.enable",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.security.enable."
+    },
+    {
+      "name": "lenjoy.security.tokenTimeout",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.security.tokenTimeout."
+    },
+    {
       "name": "lenjoy.security.tokenHeader",
       "type": "java.lang.String",
       "description": "Description for lenjoy.security.tokenHeader."
@@ -9,16 +19,6 @@
       "name": "lenjoy.security.tokenHeaderPrefix",
       "type": "java.lang.String",
       "description": "Description for lenjoy.security.tokenHeaderPrefix."
-    },
-    {
-      "name": "lenjoy.security.tokenTimeout",
-      "type": "java.lang.String",
-      "description": "Description for lenjoy.security.tokenTimeout."
-    },
-    {
-      "name": "lenjoy.security.sessionTimeout",
-      "type": "java.lang.String",
-      "description": "Description for lenjoy.security.sessionTimeout."
     }
   ]
 }

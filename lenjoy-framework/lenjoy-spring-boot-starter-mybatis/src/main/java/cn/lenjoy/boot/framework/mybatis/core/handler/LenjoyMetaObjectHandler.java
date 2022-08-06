@@ -26,8 +26,8 @@ public class LenjoyMetaObjectHandler implements MetaObjectHandler {
                 baseEntity.setCreateTime(now);
             }
             // 设置修改时间
-            if (Objects.isNull(baseEntity.getModifyTime())) {
-                baseEntity.setModifyTime(now);
+            if (Objects.isNull(baseEntity.getUpdateTime())) {
+                baseEntity.setUpdateTime(now);
             }
 
             String username = LenjoyUserThreadLocalHolder.getUsername();
@@ -36,8 +36,8 @@ public class LenjoyMetaObjectHandler implements MetaObjectHandler {
                 baseEntity.setCreateBy(username);
             }
             // 设置修改人
-            if (Objects.isNull(baseEntity.getModifyBy()) && Objects.nonNull(username)) {
-                baseEntity.setModifyBy(username);
+            if (Objects.isNull(baseEntity.getUpdateBy()) && Objects.nonNull(username)) {
+                baseEntity.setUpdateBy(username);
             }
 
         }

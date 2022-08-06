@@ -34,16 +34,16 @@ public abstract class BaseEntity implements Serializable {
     /**
      * 修改人
      */
-    @TableField(value = "modify_by", fill = FieldFill.INSERT_UPDATE)
-    private String modifyBy;
+    @TableField(value = "update_by", fill = FieldFill.INSERT_UPDATE)
+    private String updateBy;
     /**
      * 修改时间
      */
-    @TableField(value = "modify_time", fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime modifyTime;
+    @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updateTime;
     /**
      * 是否删除
      */
     @TableLogic
-    private Boolean deleted;
+    private Integer deleted;
 }

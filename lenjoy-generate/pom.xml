@@ -20,4 +20,27 @@
         支持mybatis-plus 代码自动生成 entity/dao/service 层
     </description>
 
+    <dependencies>
+        <!--mybatis-plus依赖配置-->
+        <dependency>
+            <groupId>cn.lenjoy.boot</groupId>
+            <artifactId>lenjoy-spring-boot-starter-mybatis</artifactId>
+        </dependency>
+        <!--mybatis-plus代码自动生成器-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+        </dependency>
+        <!--mybatis-plus代码自动生成器模板引擎-->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+        </dependency>
+        <!--lombok依赖配置-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
