@@ -1,4 +1,5 @@
-乐享开源 https://github.com/lenjoy-backend/lenjoy-boot
+乐享开源 https://github.com/LenjoyBoot/lenjoy-boot
+乐享博客 https://lenjoy.gitee.io/
 Application Version: ${lenjoy-boot.version}
 Spring Boot Version: ${spring-boot.version}
  _             _               _                 _

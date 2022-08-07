@@ -14,5 +14,9 @@
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <description>乐享项目 lock starter</description>
-    <url>https://github.com/LenjoyBoot/lenjoy-boot</url>
+
+    <url>
+        https://github.com/LenjoyBoot/lenjoy-boot
+        https://gitee.com/LenjoyBoot/lenjoy-boot
+    </url>
 </project>

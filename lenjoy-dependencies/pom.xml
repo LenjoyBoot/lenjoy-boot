@@ -12,7 +12,11 @@
 
     <name>${project.artifactId}</name>
     <description>乐享单体项目基础依赖版本管理</description>
-    <url>https://github.com/LenjoyBoot/lenjoy-boot</url>
+
+    <url>
+        https://github.com/LenjoyBoot/lenjoy-boot
+        https://gitee.com/LenjoyBoot/lenjoy-boot
+    </url>
 
 
     <properties>
@@ -62,6 +66,11 @@
             <dependency>
                 <groupId>cn.lenjoy.boot</groupId>
                 <artifactId>lenjoy-common</artifactId>
+                <version>${lenjoy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.lenjoy.boot</groupId>
+                <artifactId>lenjoy-spring-boot-starter-banner</artifactId>
                 <version>${lenjoy.version}</version>
             </dependency>
             <dependency>

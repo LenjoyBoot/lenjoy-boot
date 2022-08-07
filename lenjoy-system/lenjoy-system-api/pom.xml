@@ -18,7 +18,11 @@
     <description>
         lenjoy system api
     </description>
-    <url>https://github.com/LenjoyBoot/lenjoy-boot</url>
+
+    <url>
+        https://github.com/LenjoyBoot/lenjoy-boot
+        https://gitee.com/LenjoyBoot/lenjoy-boot
+    </url>
 
     <dependencies>
         <!--lenjoy boot-->

@@ -28,6 +28,10 @@
 
     <name>${project.artifactId}</name>
     <description>乐享项目基础框架组件</description>
-    <url>https://github.com/lenjoy-backend/lenjoy-boot</url>
+
+    <url>
+        https://github.com/LenjoyBoot/lenjoy-boot
+        https://gitee.com/LenjoyBoot/lenjoy-boot
+    </url>
 
 </project>

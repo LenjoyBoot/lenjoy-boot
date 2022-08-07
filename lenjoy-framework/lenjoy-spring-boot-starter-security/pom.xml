@@ -14,7 +14,11 @@
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <description>乐享项目 security starter</description>
-    <url>https://github.com/LenjoyBoot/lenjoy-boot</url>
+
+    <url>
+        https://github.com/LenjoyBoot/lenjoy-boot
+        https://gitee.com/LenjoyBoot/lenjoy-boot
+    </url>
 
     <dependencies>
         <dependency>
