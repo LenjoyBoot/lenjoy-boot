@@ -30,7 +30,6 @@
         <mysql.version>8.0.29</mysql.version>
         <druid.version>1.2.9</druid.version>
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
-        <dynamic-datasource.version>3.5.1</dynamic-datasource.version>
         <redisson.version>3.17.3</redisson.version>
 
         <!--config-->
@@ -43,6 +42,7 @@
         <knife4j.verion>3.0.3</knife4j.verion>
         <fastjson2.version>2.0.5</fastjson2.version>
         <velocity.version>2.3</velocity.version>
+        <guava.version>31.1-jre</guava.version>
     </properties>
 
     <dependencyManagement>
@@ -121,11 +121,6 @@
                 <version>${mybatis-plus.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>dynamic-datasource-spring-boot-starter</artifactId> <!-- 多数据源 -->
-                <version>${dynamic-datasource.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson.version}</version>
@@ -167,6 +162,11 @@
                 <groupId>org.apache.velocity</groupId>
                 <artifactId>velocity-engine-core</artifactId>
                 <version>${velocity.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
 
         </dependencies>

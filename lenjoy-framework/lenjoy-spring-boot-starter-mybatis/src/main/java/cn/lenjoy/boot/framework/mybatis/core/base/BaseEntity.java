@@ -3,6 +3,7 @@ package cn.lenjoy.boot.framework.mybatis.core.base;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
  */
 @Getter
 @Setter
+@Accessors(chain = true)
 public abstract class BaseEntity implements Serializable {
     /**
      * 自增ID

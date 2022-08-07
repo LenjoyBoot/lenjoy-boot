@@ -29,7 +29,7 @@ public class MybatisPlusGenerator {
     /**
      * 包名
      */
-    private static final String PACKAGE = "cn.lenjoy.boot.generate";
+    private static final String PACKAGE = "cn.lenjoy.boot";
     /**
      * MAPPER
      */
@@ -94,6 +94,7 @@ public class MybatisPlusGenerator {
                         .likeTable(new LikeTable(PREFIX))
                         .entityBuilder()
                         .superClass(BaseEntity.class)
+                        .fileOverride()
                         .enableLombok()
                         .enableTableFieldAnnotation()
                         .disableSerialVersionUID()

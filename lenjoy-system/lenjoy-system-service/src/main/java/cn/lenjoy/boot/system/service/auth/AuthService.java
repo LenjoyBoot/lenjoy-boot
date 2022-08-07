@@ -1,16 +1,11 @@
 package cn.lenjoy.boot.system.service.auth;
 
-import cn.lenjoy.boot.system.api.auth.AuthApi;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-
 /**
- * @description: 权限实现
+ * @description: 权限相关接口
  * @author: lenjoy's bincloud,mvpzhou
- * @date: Create By lenjoy's bincloud,mvpzhou on 2022 04 18 星期一
+ * @date: Create By lenjoy's bincloud,mvpzhou on 2022 08 07 星期日
  * @version: 1.0.0
  */
-@Service
-@Slf4j
-public class AuthService implements AuthApi {
+public interface AuthService {
+    String test();
 }

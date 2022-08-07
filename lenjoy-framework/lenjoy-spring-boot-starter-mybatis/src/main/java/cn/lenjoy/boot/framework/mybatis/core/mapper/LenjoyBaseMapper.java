@@ -3,8 +3,7 @@ package cn.lenjoy.boot.framework.mybatis.core.mapper;
 import cn.lenjoy.boot.framework.common.base.request.PageReq;
 import cn.lenjoy.boot.framework.common.base.response.PageRes;
 import cn.lenjoy.boot.framework.mybatis.core.constant.SqlConstant;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import cn.lenjoy.boot.framework.mybatis.core.query.LenjoyQueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -26,7 +25,7 @@ public interface LenjoyBaseMapper<T> extends BaseMapper<T> {
      * @param queryWrapper 条件
      * @return 分页数据
      */
-    default PageRes<T> selectPage(PageReq pageReq, Wrapper<T> queryWrapper) {
+    default PageRes<T> selectPage(PageReq pageReq, LenjoyQueryWrapper<T> queryWrapper) {
         IPage<T> iPage = new Page<>(pageReq.getPageNo(), pageReq.getPageSize());
         selectPage(iPage, queryWrapper);
         return new PageRes<>(pageReq.getPageNo(), pageReq.getPageSize(), iPage.getPages(), iPage.getTotal(), iPage.getRecords());
@@ -34,11 +33,12 @@ public interface LenjoyBaseMapper<T> extends BaseMapper<T> {
 
     /**
      * 默认查询一条数据
+     * 若结果数据存在多条，则返回结果中顺序第一条数据
      * @param queryWrapper 查询条件
      * @return 单条数据，可能为null
      */
-    default T limitOne(Wrapper<T> queryWrapper) {
-        return selectOne(new QueryWrapper<T>().last(SqlConstant.LIMIT_1));
+    default T limitOne(LenjoyQueryWrapper<T> queryWrapper) {
+        return this.selectOne(queryWrapper.last(SqlConstant.LIMIT_1));
     }
 
     /**
