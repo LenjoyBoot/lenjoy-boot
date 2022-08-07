@@ -19,6 +19,7 @@
         乐享 generate 模块：研发工具
         支持mybatis-plus 代码自动生成 entity/dao/service 层
     </description>
+    <url>https://github.com/LenjoyBoot/lenjoy-boot</url>
 
     <dependencies>
         <!--mybatis-plus依赖配置-->

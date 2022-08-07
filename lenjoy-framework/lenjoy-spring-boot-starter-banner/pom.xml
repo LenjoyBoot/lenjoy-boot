@@ -3,36 +3,28 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>lenjoy-system</artifactId>
+        <artifactId>lenjoy-boot</artifactId>
         <groupId>cn.lenjoy.boot</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>lenjoy-system-api</artifactId>
+    <artifactId>lenjoy-spring-boot-starter-banner</artifactId>
 
     <packaging>jar</packaging>
-
     <name>${project.artifactId}</name>
-
-    <description>
-        lenjoy system api
-    </description>
+    <description>乐享项目 banner starter</description>
     <url>https://github.com/LenjoyBoot/lenjoy-boot</url>
 
     <dependencies>
-        <!--lenjoy boot-->
         <dependency>
             <groupId>cn.lenjoy.boot</groupId>
             <artifactId>lenjoy-common</artifactId>
         </dependency>
 
-        <!-- spring boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-            <optional>true</optional>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
-
 </project>

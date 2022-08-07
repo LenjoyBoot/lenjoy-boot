@@ -11,7 +11,7 @@
     <modules>
         <module>lenjoy-dependencies</module>
         <module>lenjoy-framework</module>
-        <module>lenjoy-boot-test</module>
+        <module>lenjoy-application</module>
         <module>lenjoy-system</module>
         <module>lenjoy-generate</module>
     </modules>
@@ -20,7 +20,7 @@
 
     <name>${project.artifactId}</name>
     <description>乐享项目基础脚手架</description>
-    <url>https://github.com/lenjoy-backend/lenjoy-boot</url>
+    <url>https://github.com/LenjoyBoot/lenjoy-boot</url>
 
 
     <properties>

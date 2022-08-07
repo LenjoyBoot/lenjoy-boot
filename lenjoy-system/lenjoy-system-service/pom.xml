@@ -11,11 +11,31 @@
 
     <artifactId>lenjoy-system-service</artifactId>
 
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
+    <description>乐享项目 system service</description>
+    <url>https://github.com/LenjoyBoot/lenjoy-boot</url>
+
     <dependencies>
+        <!--lenjoy system-->
         <dependency>
             <groupId>cn.lenjoy.boot</groupId>
             <artifactId>lenjoy-system-api</artifactId>
             <version>${lenjoy.version}</version>
+        </dependency>
+
+        <!--lenjoy starter-->
+        <dependency>
+            <groupId>cn.lenjoy.boot</groupId>
+            <artifactId>lenjoy-spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.lenjoy.boot</groupId>
+            <artifactId>lenjoy-spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.lenjoy.boot</groupId>
+            <artifactId>lenjoy-spring-boot-starter-mybatis</artifactId>
         </dependency>
     </dependencies>
 

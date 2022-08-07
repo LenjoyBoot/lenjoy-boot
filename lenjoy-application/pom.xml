@@ -13,20 +13,27 @@
 
     <packaging>jar</packaging>
     <description>乐享项目启动引导工程</description>
-    <url>https://github.com/lenjoy-backend/lenjoy-boot</url>
+    <url>https://github.com/LenjoyBoot/lenjoy-boot</url>
 
     <dependencies>
+
+        <!--lenjoy modules-->
         <dependency>
             <groupId>cn.lenjoy.boot</groupId>
             <artifactId>lenjoy-system</artifactId>
             <version>${lenjoy.version}</version>
         </dependency>
 
+        <!--lenjoy boot-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
+            <groupId>cn.lenjoy.boot</groupId>
+            <artifactId>lenjoy-spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.lenjoy.boot</groupId>
+            <artifactId>lenjoy-spring-boot-starter-security</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -36,7 +43,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <!--升级springboot版本时需修改为对应的版本-->
-                <version>2.7.0</version>
+                <version>2.7.2</version>
                 <configuration>
                     <fork>true</fork>
                 </configuration>

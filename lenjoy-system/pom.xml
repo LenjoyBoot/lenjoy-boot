@@ -23,6 +23,9 @@
         登录日志、操作日志、
         系统通知
     </description>
+
+    <url>https://github.com/LenjoyBoot/lenjoy-boot</url>
+
     <modules>
         <module>lenjoy-system-api</module>
         <module>lenjoy-system-service</module>

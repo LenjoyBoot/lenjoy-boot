@@ -11,4 +11,8 @@
 
     <artifactId>lenjoy-spring-boot-starter-lock</artifactId>
 
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
+    <description>乐享项目 lock starter</description>
+    <url>https://github.com/LenjoyBoot/lenjoy-boot</url>
 </project>

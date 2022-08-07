@@ -11,8 +11,10 @@
 
     <artifactId>lenjoy-spring-boot-starter-excel</artifactId>
 
-    <properties>
-    </properties>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
+    <description>乐享项目 excel starter</description>
+    <url>https://github.com/LenjoyBoot/lenjoy-boot</url>
 
     <dependencies>
         <dependency>

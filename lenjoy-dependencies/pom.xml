@@ -12,7 +12,7 @@
 
     <name>${project.artifactId}</name>
     <description>乐享单体项目基础依赖版本管理</description>
-    <url>https://github.com/lenjoy-backend/lenjoy-boot</url>
+    <url>https://github.com/LenjoyBoot/lenjoy-boot</url>
 
 
     <properties>

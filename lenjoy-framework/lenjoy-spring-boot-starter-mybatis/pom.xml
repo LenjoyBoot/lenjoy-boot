@@ -14,8 +14,8 @@
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
-    <description>乐享项目 web starter</description>
-    <url>https://github.com/lenjoy-backend/lenjoy-boot</url>
+    <description>乐享项目 mybatis starter</description>
+    <url>https://github.com/LenjoyBoot/lenjoy-boot</url>
 
     <dependencies>
         <dependency>
