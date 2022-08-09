@@ -7,11 +7,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.annotation.security.PermitAll;
-import javax.validation.Valid;
 
 /**
  * @description:
@@ -30,21 +32,12 @@ public class AuthController {
     private AuthService authService;
 
     @PermitAll
-    @GetMapping("/login/{id}")
+    @GetMapping(value = "/login/{id}")
     @ApiOperation(value = "用户账号密码登录", produces = "application/json")
     public BaseRes<String> login(@PathVariable(value = "id") String id) {
         String test = authService.test();
         log.info("{}", test);
         return ResultUtils.ok(id);
-    }
-
-    @PermitAll
-    @GetMapping("/login2")
-    @ApiOperation(value = "用户账号密码登录", produces = "application/json")
-    public BaseRes<String> login2(@RequestBody @Valid String login) {
-        String test = authService.test();
-        log.info("{}", test);
-        return ResultUtils.ok(login);
     }
 
 }

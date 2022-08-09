@@ -32,6 +32,8 @@
  * @since 1.0.0
  *      {@link cn.lenjoy.boot.framework.common.util.id.UUIDUtils}
  * @since 1.0.0
+ *      {@link cn.lenjoy.boot.framework.common.util.crypt.MCryptUtils}
+ * @since 1.0.0
  *
  * @author: lenjoy's bincloud,mvpzhou
  * @date: Create By lenjoy's bincloud,mvpzhou on 2022 04 16 星期六
