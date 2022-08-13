@@ -22,7 +22,8 @@ public class LenjoyBannerApplicationRunner implements ApplicationRunner {
                 "URL (https://gitee.com/LenjoyBoot/lenjoy-boot) \n\t" +
                 "MIT License | Copyright (c) 2022 lenjoy-boot (https://lenjoy.gitee.io) \n\t" +
                 "\n {} \n\t",
-                "lenjoy boot application start up success!!!"
+                "lenjoy boot application start up success!!!" +
+                "\n----------------------------------------------------------\n\t"
         );
     }
 }

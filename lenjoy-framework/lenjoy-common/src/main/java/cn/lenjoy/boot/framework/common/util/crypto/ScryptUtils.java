@@ -1,11 +1,13 @@
-package cn.lenjoy.boot.framework.common.util.crypt;
+package cn.lenjoy.boot.framework.common.util.crypto;
 
 import cn.lenjoy.boot.framework.common.util.AssertUtils;
+import cn.lenjoy.boot.framework.common.util.string.StringUtils;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.SneakyThrows;
 
 import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
@@ -77,12 +79,28 @@ public class ScryptUtils {
         return encrypt(text, key, ScryptEnum.DES.getAlgorithm(), ModelEnum.ECB.getModel(), PaddingEnum.PKCS5PADDING.getPadding());
     }
 
+    /**
+     * 对称加密算法（DES）
+     * ECB 密码本模式
+     * @param text 明文
+     * @param key 加密密钥
+     * @param algorithm 算法
+     * @param model 模式
+     * @param padding 填充方式
+     * @return 密文
+     */
     @SneakyThrows
     public static String decrypt(String text, String key, String algorithm, String model, String padding) {
         String algorithmStr = String.join("/", algorithm, model, padding);
         Cipher cipher = Cipher.getInstance(algorithmStr);
         SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), algorithm);
-        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
+        // 仅CBC 模式
+        if (StringUtils.isEquals(ModelEnum.CBC.getModel(), model)) {
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(secretKeySpec.getEncoded());
+            cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivParameterSpec);
+        } else {
+            cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
+        }
         byte[] decode = Base64.getDecoder().decode(text.getBytes(StandardCharsets.UTF_8));
         byte[] bytes = cipher.doFinal(decode);
         return new String(bytes);
@@ -102,7 +120,15 @@ public class ScryptUtils {
         String algorithmStr = String.join("/", algorithm, model, padding);
         Cipher cipher = Cipher.getInstance(algorithmStr);
         SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), algorithm);
-        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
+        // 仅CBC 模式
+        if (StringUtils.isEquals(ModelEnum.CBC.getModel(), model)) {
+            // 此处提示需使用随机向量，需要保存随机向量值，但key是保密的，暂不做随机处理
+            @SuppressWarnings("all")
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(secretKeySpec.getEncoded());
+            cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivParameterSpec);
+        } else {
+            cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
+        }
         byte[] bytes = cipher.doFinal(text.getBytes(StandardCharsets.UTF_8));
         return Base64.getEncoder().encodeToString(bytes);
     }

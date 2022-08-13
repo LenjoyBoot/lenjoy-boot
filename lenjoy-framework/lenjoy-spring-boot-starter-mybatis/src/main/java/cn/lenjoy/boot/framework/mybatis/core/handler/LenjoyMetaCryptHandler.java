@@ -1,6 +1,6 @@
 package cn.lenjoy.boot.framework.mybatis.core.handler;
 
-import cn.lenjoy.boot.framework.common.util.crypt.MCryptUtils;
+import cn.lenjoy.boot.framework.common.util.crypto.MCryptUtils;
 import cn.lenjoy.boot.framework.common.util.string.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.type.BaseTypeHandler;

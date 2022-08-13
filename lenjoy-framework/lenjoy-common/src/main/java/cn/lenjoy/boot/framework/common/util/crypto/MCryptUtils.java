@@ -1,4 +1,4 @@
-package cn.lenjoy.boot.framework.common.util.crypt;
+package cn.lenjoy.boot.framework.common.util.crypto;
 
 import lombok.SneakyThrows;
 

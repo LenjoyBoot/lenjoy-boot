@@ -32,7 +32,13 @@
  * @since 1.0.0
  *      {@link cn.lenjoy.boot.framework.common.util.id.UUIDUtils}
  * @since 1.0.0
- *      {@link cn.lenjoy.boot.framework.common.util.crypt.MCryptUtils}
+ *      {@link cn.lenjoy.boot.framework.common.util.crypto.MCryptUtils}
+ * @since 1.0.0
+ *      {@link cn.lenjoy.boot.framework.common.util.crypto.AcryptUtils}
+ * @since 1.0.0
+ *      {@link cn.lenjoy.boot.framework.common.util.crypto.DigestUtils}
+ * @since 1.0.0
+ *      {@link cn.lenjoy.boot.framework.common.util.crypto.ScryptUtils}
  * @since 1.0.0
  *
  * @author: lenjoy's bincloud,mvpzhou
