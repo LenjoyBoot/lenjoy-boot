@@ -1,4 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.lenjoy.boot.framework.web.config.jackson.LenjoyJacksonAutoConfiguration,\
-  cn.lenjoy.boot.framework.web.config.swagger.LenjoySwaggerAutoConfiguration,\
-  cn.lenjoy.boot.framework.web.config.web.LenjoyWebMvcAutoConfiguration
+  cn.lenjoy.boot.framework.web.jackson.LenjoyJacksonAutoConfiguration,\
+  cn.lenjoy.boot.framework.web.swagger.LenjoySwaggerAutoConfiguration,\
+  cn.lenjoy.boot.framework.web.config.LenjoyWebMvcAutoConfiguration,\
+  cn.lenjoy.boot.framework.web.restemplate.config.LenjoyRestTemplateAutoConfiguration

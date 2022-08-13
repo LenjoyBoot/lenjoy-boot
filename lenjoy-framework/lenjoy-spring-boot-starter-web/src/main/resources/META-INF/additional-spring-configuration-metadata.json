@@ -39,6 +39,21 @@
       "name": "lenjoy.swagger.email",
       "type": "java.lang.String",
       "description": "Description for lenjoy.swagger.email."
+    },
+    {
+      "name": "lenjoy.restemplate.enable",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.restemplate.enable."
+    },
+    {
+      "name": "lenjoy.restemplate.readTimeout",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.restemplate.readTimeout."
+    },
+    {
+      "name": "lenjoy.restemplate.connectTimeout",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.restemplate.connectTimeout."
     }
   ]
 }

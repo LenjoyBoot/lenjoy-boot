@@ -24,7 +24,7 @@
         <!--lenjoy modules-->
         <dependency>
             <groupId>cn.lenjoy.boot</groupId>
-            <artifactId>lenjoy-system-service</artifactId>
+            <artifactId>lenjoy-system-biz</artifactId>
             <version>${lenjoy.version}</version>
         </dependency>
 
@@ -32,14 +32,6 @@
         <dependency>
             <groupId>cn.lenjoy.boot</groupId>
             <artifactId>lenjoy-spring-boot-starter-banner</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.lenjoy.boot</groupId>
-            <artifactId>lenjoy-spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.lenjoy.boot</groupId>
-            <artifactId>lenjoy-spring-boot-starter-security</artifactId>
         </dependency>
 
     </dependencies>

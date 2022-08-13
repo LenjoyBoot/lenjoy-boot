@@ -1,0 +1,24 @@
+{
+  "properties": [
+    {
+      "name": "lenjoy.social.gitee.enable",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.social.gitee.enable."
+    },
+    {
+      "name": "lenjoy.social.gitee.redirectUrl",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.social.gitee.redirectUrl."
+    },
+    {
+      "name": "lenjoy.social.gitee.clientId",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.social.gitee.clientId."
+    },
+    {
+      "name": "lenjoy.social.gitee.clientSecret",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.social.gitee.clientSecret."
+    }
+  ]
+}

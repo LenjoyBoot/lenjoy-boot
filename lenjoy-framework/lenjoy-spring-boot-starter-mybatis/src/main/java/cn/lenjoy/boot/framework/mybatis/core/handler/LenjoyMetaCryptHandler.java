@@ -1,7 +1,7 @@
 package cn.lenjoy.boot.framework.mybatis.core.handler;
 
-import cn.lenjoy.boot.framework.common.util.crypto.MCryptUtils;
 import cn.lenjoy.boot.framework.common.util.string.StringUtils;
+import cn.lenjoy.boot.framework.mybatis.core.util.LenjoyMetaCryptUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
@@ -27,7 +27,7 @@ public class LenjoyMetaCryptHandler extends BaseTypeHandler<String> {
     public void setNonNullParameter(PreparedStatement preparedStatement, int i, String s, JdbcType jdbcType) throws SQLException {
         try {
             if (StringUtils.isNotBlank(s)) {
-                preparedStatement.setString(i, MCryptUtils.encrypt(s));
+                preparedStatement.setString(i, LenjoyMetaCryptUtils.encrypt(s));
             }
         } catch (SQLException e) {
             throw new SQLException(e);
@@ -41,7 +41,7 @@ public class LenjoyMetaCryptHandler extends BaseTypeHandler<String> {
         String resStr = resultSet.getString(s);
         try {
             if (StringUtils.isNotBlank(resStr)) {
-                resStr = MCryptUtils.decrypt(resStr);
+                resStr = LenjoyMetaCryptUtils.decrypt(resStr);
             }
         } catch (Exception e) {
             log.error("LenjoyMetaCryptHandler decrypt error, resultSet:{}, s: {}", resultSet, s, e);
@@ -55,7 +55,7 @@ public class LenjoyMetaCryptHandler extends BaseTypeHandler<String> {
         String resStr = resultSet.getString(i);
         try {
             if (StringUtils.isNotBlank(resStr)) {
-                resStr = MCryptUtils.decrypt(resStr);
+                resStr = LenjoyMetaCryptUtils.decrypt(resStr);
             }
         } catch (Exception e) {
             log.error("LenjoyMetaCryptHandler decrypt error, resultSet:{}, i: {}", resultSet, i, e);
@@ -68,7 +68,7 @@ public class LenjoyMetaCryptHandler extends BaseTypeHandler<String> {
         String resStr = callableStatement.getString(i);
         try {
             if (StringUtils.isNotBlank(resStr)) {
-                resStr = MCryptUtils.decrypt(resStr);
+                resStr = LenjoyMetaCryptUtils.decrypt(resStr);
             }
         } catch (Exception e) {
             log.error("LenjoyMetaCryptHandler decrypt error, callableStatement:{}, i: {}", callableStatement, i, e);

@@ -103,6 +103,11 @@
                 <artifactId>lenjoy-spring-boot-starter-excel</artifactId>
                 <version>${lenjoy.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.lenjoy.boot</groupId>
+                <artifactId>lenjoy-spring-boot-starter-social</artifactId>
+                <version>${lenjoy.version}</version>
+            </dependency>
 
             <!--database-->
             <dependency>

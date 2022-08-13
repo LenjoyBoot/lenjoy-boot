@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.lenjoy.boot.framework.social.gitee.config.LenjoySocialGiteeAutoConfiguration

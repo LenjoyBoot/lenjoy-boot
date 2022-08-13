@@ -25,9 +25,9 @@ public class LenjoyCaptchaProperties {
     /**
      * 验证码长度
      */
-    private int length = 4;
+    private Integer length = 4;
     /**
      * 验证码过期时间
      */
-    private long timeout = 60L;
+    private Long timeout = 60L;
 }

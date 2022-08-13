@@ -31,7 +31,17 @@
 
     <modules>
         <module>lenjoy-system-api</module>
-        <module>lenjoy-system-service</module>
+        <module>lenjoy-system-biz</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.lenjoy.boot</groupId>
+                <artifactId>lenjoy-system-api</artifactId>
+                <version>${lenjoy.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
