@@ -17,4 +17,6 @@ public interface AuthService {
      * @return 返回登录信息
      */
     AuthLoginResVO login(AuthLoginReqVO reqDTO);
+
+    void test();
 }

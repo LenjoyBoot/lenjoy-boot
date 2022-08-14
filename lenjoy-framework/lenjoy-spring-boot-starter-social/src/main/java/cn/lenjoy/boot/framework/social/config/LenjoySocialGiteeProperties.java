@@ -1,4 +1,4 @@
-package cn.lenjoy.boot.framework.social.gitee.config;
+package cn.lenjoy.boot.framework.social.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

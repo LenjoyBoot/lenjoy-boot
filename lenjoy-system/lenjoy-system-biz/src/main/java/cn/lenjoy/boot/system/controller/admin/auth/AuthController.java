@@ -2,7 +2,8 @@ package cn.lenjoy.boot.system.controller.admin.auth;
 
 import cn.lenjoy.boot.framework.common.base.response.BaseRes;
 import cn.lenjoy.boot.framework.common.util.json.JsonUtils;
-import cn.lenjoy.boot.framework.social.gitee.core.LenjoySocialGitee;
+import cn.lenjoy.boot.framework.social.core.LenjoySocialStrategy;
+import cn.lenjoy.boot.framework.social.core.gitee.LenjoySocialGiteeService;
 import cn.lenjoy.boot.system.controller.admin.auth.vo.AuthLoginReqVO;
 import cn.lenjoy.boot.system.controller.admin.auth.vo.AuthLoginResVO;
 import cn.lenjoy.boot.system.service.auth.AuthService;
@@ -43,16 +44,16 @@ public class AuthController {
     }
 
     @Resource
-    private LenjoySocialGitee lenjoySocialGitee ;
+    private LenjoySocialStrategy lenjoySocialStrategy;
+    @Resource
+    private LenjoySocialGiteeService lenjoySocialGiteeService;
 
     @GetMapping(value = "/test")
     @PermitAll
     @ApiOperation(value = "test", produces = "application/json")
     public BaseRes<String> test() {
-        String s1 = lenjoySocialGitee.giteeLoginUrl();
-        String s2= lenjoySocialGitee.giteeTokenUrl("");
-        String s3 = lenjoySocialGitee.giteeUserUrl("7cb28172b41224d8d696644069ffe68e");
-        return ok(s3);
+        lenjoySocialGiteeService.loginUrl();
+        return ok("");
     }
 
 

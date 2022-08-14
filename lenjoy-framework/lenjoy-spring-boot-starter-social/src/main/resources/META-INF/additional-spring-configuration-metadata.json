@@ -1,9 +1,14 @@
 {
   "properties": [
     {
-      "name": "lenjoy.social.gitee.enable",
+      "name": "lenjoy.social.enable",
       "type": "java.lang.String",
-      "description": "Description for lenjoy.social.gitee.enable."
+      "description": "Description for lenjoy.social.enable."
+    },
+    {
+      "name": "lenjoy.social.types",
+      "type": "java.lang.String",
+      "description": "Description for lenjoy.social.types."
     },
     {
       "name": "lenjoy.social.gitee.redirectUrl",

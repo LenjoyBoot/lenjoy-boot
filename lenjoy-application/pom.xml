@@ -20,7 +20,6 @@
     </url>
 
     <dependencies>
-
         <!--lenjoy modules-->
         <dependency>
             <groupId>cn.lenjoy.boot</groupId>
@@ -32,6 +31,12 @@
         <dependency>
             <groupId>cn.lenjoy.boot</groupId>
             <artifactId>lenjoy-spring-boot-starter-banner</artifactId>
+        </dependency>
+
+        <!--spring boot-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
 
     </dependencies>

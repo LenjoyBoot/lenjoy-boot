@@ -1,4 +1,4 @@
-package cn.lenjoy.boot.framework.social.gitee.constant;
+package cn.lenjoy.boot.framework.social.constant;
 
 /**
  * @description: gitee　常量
@@ -11,13 +11,24 @@ public class LenjoySocialGiteeConstant {
     private LenjoySocialGiteeConstant() {}
 
     /**
+     * https://gitee.com/oauth/token
+     */
+    public static final String TOKEN_PREFIX = "https://gitee.com/oauth/token";
+
+    /**
      * https://gitee.com/oauth/authorize?client_id={client_id}&redirect_uri={redirect_uri}&response_type=code
      */
     public static final String LOGIN_URL = "https://gitee.com/oauth/authorize?client_id=%s&redirect_uri=%s&response_type=code";
+
     /**
      * https://gitee.com/oauth/token?grant_type=authorization_code&code={code}&client_id={client_id}&redirect_uri={redirect_uri}&client_secret={client_secret}
      */
-    public static final String TOKEN_URL = "https://gitee.com/oauth/token?grant_type=authorization_code&code=%s&client_id=%s&redirect_uri=%s&client_secret=%s";
+    public static final String TOKEN_URL = TOKEN_PREFIX + "?grant_type=authorization_code&code=%s&client_id=%s&redirect_uri=%s&client_secret=%s";
+    /**
+     * https://gitee.com/oauth/token?grant_type=refresh_token&refresh_token={refresh_token}
+     */
+    public static final String REFRESH_URL = TOKEN_PREFIX + "?grant_type=refresh_token&refresh_token=%s";
+
     /**
      * https://gitee.com/api/v5/user?access_token={access_token}
      */

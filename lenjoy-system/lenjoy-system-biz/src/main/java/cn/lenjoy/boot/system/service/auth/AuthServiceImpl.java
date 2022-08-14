@@ -1,9 +1,13 @@
 package cn.lenjoy.boot.system.service.auth;
 
+import cn.lenjoy.boot.framework.web.restemplate.util.RestTemplateUtils;
 import cn.lenjoy.boot.system.controller.admin.auth.vo.AuthLoginReqVO;
 import cn.lenjoy.boot.system.controller.admin.auth.vo.AuthLoginResVO;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @description: 权限相关接口实现
@@ -24,5 +28,14 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public AuthLoginResVO login(AuthLoginReqVO reqDTO) {
         return null;
+    }
+
+    @Resource
+    private RestTemplateUtils restTemplateUtils;
+
+    @Override
+    public void test() {
+        ResponseEntity<String> stringResponseEntity = restTemplateUtils.get("http://127.0.0.1:8080/system/auth/test", String.class);
+        System.out.println(stringResponseEntity.getBody());
     }
 }

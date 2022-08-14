@@ -16,4 +16,6 @@ public class SpecialConstant {
     public static final String STR_EQ = "=";
 
     public static final String STR_AND = "&";
+
+    public static final String STR_DO = ",";
 }
